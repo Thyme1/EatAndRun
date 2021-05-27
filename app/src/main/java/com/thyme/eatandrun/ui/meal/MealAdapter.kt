@@ -3,71 +3,60 @@ package com.thyme.eatandrun.ui.meal
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.tasks.Task
+import com.thyme.eatandrun.data.Meal
 
 
-class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class MealAdapter : RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
 
 
-    inner class TaskViewHolder(val binding: ItemTaskBinding) :
+    inner class MealViewHolder(val binding: ItemMealBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    private val differCallback = object : DiffUtil.ItemCallback<Task>() {
+    private val differCallback = object : DiffUtil.ItemCallback<Meal>() {
 
-        override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean {
+        override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Task, newItem: Task): Boolean {
+        override fun areContentsTheSame(oldItem: Meal, newItem: Meal): Boolean {
             return oldItem == newItem
         }
     }
 
     private val differ = AsyncListDiffer(this, differCallback)
-    var mTodo: List<Task>
+    var mMeal: List<Meal>
         get() = differ.currentList
         set(value) {
             differ.submitList(value)
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        return TaskViewHolder(
-            ItemTaskBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
+        return MealViewHolder(
+            ItemMealBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        val currentTask = mTodo[position]
+    override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
+        val currentMeal = mMeal[position]
 
         holder.binding.apply {
-            textView.text = currentTask.name
+            kcalNumber.text = currentTask.name
             taskDate.text = currentTask.date
             taskTime.text = currentTask.time
 
         }
 
-        holder.binding.cbTodo.apply {
-            setOnClickListener {
-                holder.binding.apply {
-                    if (isChecked) {
-                        textView.paintFlags =
-                            textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 
-                    } else {
-                        textView.paintFlags =
-                            textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-
-                    }
-                }
-            }
-        }
     }
 
-    override fun getItemCount() = mTodo.size
+    override fun getItemCount() = mMeal.size
 
 
 }

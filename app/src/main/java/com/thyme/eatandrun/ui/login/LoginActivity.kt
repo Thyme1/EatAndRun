@@ -1,8 +1,8 @@
-package com.kidsgamesprojects.chessAdept.ui.login
+package com.thyme.eatandrun.ui.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.thyme.eatandrun.R
+import com.thyme.todolist.R
 
 
 public class LoginActivity : AppCompatActivity() {

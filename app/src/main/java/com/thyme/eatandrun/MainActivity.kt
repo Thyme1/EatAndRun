@@ -7,6 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.thyme.todolist.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,14 +30,14 @@ class MainActivity : AppCompatActivity() {
     private fun setupNavigationView() {
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentHost) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         mNavController = navHostFragment.navController
         setupActionBarWithNavController(mNavController)
         mAppBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.action_taskListFragment_to_addTaskFragment,
-                R.id.action_addTaskFragment_to_taskListFragment
+                R.id.action_mealListFragment_to_addMealFragment,
+                R.id.action_addMealFragment_to_mealListFragment
             )
         )
     }

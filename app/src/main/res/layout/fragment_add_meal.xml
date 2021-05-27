@@ -9,7 +9,8 @@
     android:orientation="vertical"
     android:padding="16dp"
 
-    tools:context=".ui.main.AddTaskFragment">
+
+    tools:context="com.thyme.eatandrun.ui.meal.addMeal.AddMealFragment">
 
 
     <EditText
@@ -46,7 +47,9 @@
         <Button
             android:id="@+id/saveButton"
             android:layout_width="110dp"
+            style="@style/AppTheme.Button.Blue"
             android:layout_height="66dp"
+
             android:layout_marginEnd="68dp"
             android:text="@string/add"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,6 +61,7 @@
 
         <Button
             android:id="@+id/cancel_button"
+            style="@style/AppTheme.Button.Blue"
             android:layout_width="110dp"
             android:layout_height="66dp"
             android:text="@string/cancel"

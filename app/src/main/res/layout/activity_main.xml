@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:navGraph="@navigation/main_app_navigation"
+        app:navGraph="@navigation/mobile_navigation"
         tools:layout_editor_absoluteX="0dp" />
 
 

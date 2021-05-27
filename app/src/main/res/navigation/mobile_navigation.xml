@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/addMealFragment">
+
+    <fragment
+        android:id="@+id/addMealFragment"
+        android:name="com.thyme.eatandrun.ui.meal.addMeal.AddMealFragment"
+        android:label="AddMealFragment" >
+        <action
+            android:id="@+id/action_addMealFragment_to_mealListFragment"
+            app:destination="@id/mealListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealListFragment"
+        android:name="com.thyme.eatandrun.ui.meal.MealListFragment"
+        android:label="fragment_meal"
+        tools:layout="@layout/fragment_meal" >
+        <action
+            android:id="@+id/action_mealListFragment_to_addMealFragment"
+            app:destination="@id/addMealFragment" />
+    </fragment>
+</navigation>

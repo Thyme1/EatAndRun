@@ -29,7 +29,7 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideTaskDao(
+    fun provideMealDao(
         db: MealDatabase
     ) = db.mealDao()
 

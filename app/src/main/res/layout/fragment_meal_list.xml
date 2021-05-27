@@ -8,5 +8,5 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/separation_normal"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".ui.meal.MealListFragment"
+    tools:context="com.thyme.eatandrun.ui.login.LoginActivity"
     tools:listitem="@layout/item_fragment_meal_list" />

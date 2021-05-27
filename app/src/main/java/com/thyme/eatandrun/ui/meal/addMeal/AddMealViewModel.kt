@@ -1,6 +1,7 @@
 package com.thyme.eatandrun.ui.meal.addMeal
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.thyme.eatandrun.data.Meal
 import com.thyme.eatandrun.data.MealRepository
@@ -11,17 +12,17 @@ import javax.inject.Inject
 @HiltViewModel
 class AddMealViewModel
 @Inject
-constructor(private val taskRepository: MealRepository) : ViewModel() {
+constructor(private val mealRepository: MealRepository) : ViewModel() {
 
-    fun insertTask(task: Meal) = viewModelScope.launch {
-        taskRepository.insertMeal(task)
+    fun insertMeal(meal: Meal) = viewModelScope.launch {
+        mealRepository.insertMeal(meal)
     }
 
-    fun deleteTask(task: Meal) = viewModelScope.launch {
-        taskRepository.deleteMeal(task)
+    fun deleteMeal(meal: Meal) = viewModelScope.launch {
+        mealRepository.deleteMeal(meal)
     }
 
-    val allToDos = taskRepository.getAllTasks().asLiveData()
+    val allToDos = mealRepository.getAllMeals().asFlow() //as Live data
 
 
 }

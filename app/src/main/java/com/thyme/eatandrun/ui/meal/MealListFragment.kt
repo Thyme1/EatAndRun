@@ -8,9 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.thyme.eatandrun.R
-import com.thyme.eatandrun.databinding.FragmentMealListBinding
+import com.google.android.gms.tasks.Task
+import com.thyme.eatandrun.data.Meal
+
 import com.thyme.eatandrun.ui.meal.addMeal.AddMealViewModel
+import com.thyme.todolist.R
+import com.thyme.todolist.databinding.FragmentMealListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,9 +21,9 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
 
     private var _binding: FragmentMealListBinding? = null
     private val binding get() = _binding!!
-    private lateinit var todoAdapter: MealAdapter
+    private lateinit var mealAdapter: MealAdapter
     private val viewModel: AddMealViewModel by viewModels()
-    private val taskListViewModel: MealListViewModel by viewModels()
+    private val mealListViewModel: MealListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +44,7 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
 
         binding.fabAddTask.setOnClickListener {
             view.findNavController().navigate(
-                R.id.action_taskListFragment_to_addTaskFragment
+                R.id.action_mealListFragment_to_addMealFragment
             )
         }
 
@@ -56,31 +59,31 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
 
     private fun setupRecyclerView() {
 
-        todoAdapter = MealAdapter()
+        mealAdapter = MealAdapter()
 
-        binding.rvTodoList.apply {
+        binding.rvMealList.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = todoAdapter
+            adapter = mealAdapter
         }
 
-        viewModel.allToDos.observe(requireActivity()) { listTodo ->
-            updateUi(listTodo)
-            todoAdapter.mTodo = listTodo
+        viewModel.allMeals.observe(requireActivity()) { listMeal ->
+            updateUi(listMeal)
+            mealAdapter.mMeal = listMeal
         }
     }
 
-    private fun updateUi(list: List<Task>) {
+    private fun updateUi(list: List<Meal>) {
         if (list.isNotEmpty()) {
-            binding.rvTodoList.visibility = View.VISIBLE
+            binding.rvMealList.visibility = View.VISIBLE
             binding.cardView.visibility = View.GONE
         } else {
-            binding.rvTodoList.visibility = View.GONE
+            binding.rvMealList.visibility = View.GONE
             binding.cardView.visibility = View.VISIBLE
         }
     }
 
     fun removeData() {
-        taskListViewModel.deleteAll()
+        mealListViewModel.deleteAll()
     }
 
 
