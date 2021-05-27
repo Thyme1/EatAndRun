@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="384dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="@dimen/separation_small"
+        android:background="@drawable/meal_item_layout"
+        android:layout_gravity="top|center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/productsList"
+            android:layout_width="247dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/separation_small"
+            android:text="@string/cereal_150g_milk_200g"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/white"
+            android:textSize='@dimen/text_size_small'
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/energy_icon"
+            android:layout_width="23dp"
+            android:layout_height="29dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/separation_small"
+            android:layout_weight="0"
+            android:contentDescription="@string/energy_icon"
+            android:paddingBottom="@dimen/separation_small"
+            app:srcCompat="@drawable/energy_small" />
+
+        <TextView
+            android:id="@+id/kcal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/separation_small"
+            android:text="@string/kcal"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/kcal_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/separation_small"
+            android:text="@string/_321"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+
+
+
+
+</layout>
