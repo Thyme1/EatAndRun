@@ -24,7 +24,7 @@
 
 
     <EditText
-        android:id="@+id/editTextTaskDescription"
+        android:id="@+id/editTextMealGrams"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:gravity="top"

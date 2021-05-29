@@ -8,10 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.thyme.todolist.R
+import com.thyme.todolist.databinding.AddMealFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddMealFragment : Fragment(R.layout.fragment_add_meal) {
+class AddMealFragment : Fragment(R.layout.add_meal_fragment) {
 
     private var _binding: AddMealFragmentBinding? = null
     private val binding get() = _binding!!

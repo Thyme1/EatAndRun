@@ -1,13 +1,12 @@
 package com.thyme.eatandrun.ui.meal
 
-import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.tasks.Task
 import com.thyme.eatandrun.data.Meal
+import com.thyme.todolist.databinding.ItemMealBinding
 
 
 class MealAdapter : RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
@@ -47,9 +46,8 @@ class MealAdapter : RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
         val currentMeal = mMeal[position]
 
         holder.binding.apply {
-            kcalNumber.text = currentTask.name
-            taskDate.text = currentTask.date
-            taskTime.text = currentTask.time
+            kcalNumber.text = currentMeal.kcal.toString()
+            productsList.text = currentMeal.name
 
         }
 

@@ -18,4 +18,6 @@
     <string name="energy_icon">energy icon</string>
     <string name="kcal">kcal</string>
     <string name="_321">321</string>
+    <string name="clear_all_meals">clear all meals</string>
+    <string name="waiting_for_your_meal">Waiting for your meal :)</string>
 </resources>
