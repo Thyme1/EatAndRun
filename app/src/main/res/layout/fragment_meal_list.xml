@@ -5,19 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.thyme.eatandrun.ui.meal.MealListFragment">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_meal_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="4dp"
-        android:scrollbars="vertical"
-        android:visibility="gone" />
+
 
     <LinearLayout
+        android:id="@+id/linearLayout_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/blue_very_light"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_meal_list"
+            android:layout_width="match_parent"
+            android:layout_height="465dp"
+            android:layout_margin="@dimen/separation_normal"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layoutManager="LinearLayoutManager"
+            app:stackFromEnd="true"
+            app:reverseLayout="true"
+             />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -29,7 +43,7 @@
             android:elevation="10dp"
             app:cardCornerRadius="10dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layout_constraintBottom_toTopOf="@+id/fabAddTask"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -47,12 +61,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout_board"
+            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-
-            android:orientation="vertical">
+            android:layout_height="245dp"
+            android:layout_marginTop="3dp">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fabAddMeal"
@@ -60,17 +72,22 @@
                 android:layout_height="53dp"
 
                 android:layout_gravity="end"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="28dp"
                 android:clickable="true"
                 android:contentDescription="@string/add_meal_button"
                 android:focusable="true"
+                android:paddingStart="3dp"
                 android:paddingEnd="3dp"
+
+
                 android:src="@drawable/plus_sign"
                 app:backgroundTint="@color/blue_normal"
                 app:layout_constraintBottom_toTopOf="@+id/button_login"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/button_login"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.056" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fabDeleteAllMeals"
@@ -78,37 +95,40 @@
                 android:layout_width="63dp"
                 android:layout_height="53dp"
                 android:layout_gravity="top"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="4dp"
                 android:clickable="true"
                 android:contentDescription="@string/clear_all_meals"
                 android:focusable="true"
                 android:paddingStart="3dp"
+                android:paddingEnd="3dp"
+
                 android:src="@drawable/minus_sign"
                 app:backgroundTint="@color/blue_normal"
                 app:layout_constraintBottom_toTopOf="@+id/button_login"
+                app:layout_constraintEnd_toStartOf="@+id/button_login"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.053" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/button_login"
                 style="@style/AppTheme.Button.Blue"
-                android:layout_width="323dp"
-                android:layout_height="73dp"
+                android:layout_width="207dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/summary"
-                android:textSize="@dimen/text_size_biggest"
+                android:textSize="@dimen/text_size_normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.711" />
-
-
+                app:layout_constraintVertical_bias="0.384" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

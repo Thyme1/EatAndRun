@@ -57,6 +57,7 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
 
         mealAdapter = MealAdapter()
 
+
         binding.rvMealList.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = mealAdapter
@@ -64,13 +65,15 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
 
 
 
+
         viewModel.allToDos.observe(requireActivity()) { listMeal ->
             updateUi(listMeal)
-            mealAdapter.mMeal = listMeal
+            mealAdapter.mMeal = listMeal.asReversed()
         }
     }
 
     private fun updateUi(list: List<Meal>) {
+
         if (list.isNotEmpty()) {
             binding.rvMealList.visibility = View.VISIBLE
             binding.cardView.visibility = View.GONE
