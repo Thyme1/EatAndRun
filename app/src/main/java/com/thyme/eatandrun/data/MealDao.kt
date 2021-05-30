@@ -5,15 +5,16 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MealDao {
 
     @Insert
-    fun insert(food: Meal)
+    suspend fun insert(food: Meal)
 
     @Query("SELECT * FROM meal_table ORDER BY id DESC")
-    fun getAllMeals(): LiveData<List<Meal>>
+    fun getAllMeals(): Flow<List<Meal>>
 
     @Query("SELECT * FROM meal_table WHERE date LIKE :day ORDER BY id ASC")
     fun getAllMealsFromDay(day: String): LiveData<List<Meal>>

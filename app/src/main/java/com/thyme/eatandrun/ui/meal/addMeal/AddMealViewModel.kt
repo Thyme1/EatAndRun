@@ -2,7 +2,7 @@ package com.thyme.eatandrun.ui.meal.addMeal
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-]import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewModelScope
 import com.thyme.eatandrun.data.Meal
 import com.thyme.eatandrun.data.MealRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

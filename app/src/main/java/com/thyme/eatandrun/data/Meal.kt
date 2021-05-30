@@ -7,13 +7,13 @@ import androidx.room.PrimaryKey
 data class Meal(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
-    var name: String?,
-    var grams: Double,
+    var name: String,
+    var grams: String,
     var carbs: Double,
     var proteins: Double,
     var fats: Double,
     var kcal: Double,
-    var date: String?
+    var date: String
 )
 //{
 //    @Ignore

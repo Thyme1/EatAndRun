@@ -6,7 +6,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.thyme.todolist.R
 import com.thyme.todolist.databinding.MainActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         mNavController = navHostFragment.navController
-        setupActionBarWithNavController(mNavController)
         mAppBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.action_mealListFragment_to_addMealFragment,
