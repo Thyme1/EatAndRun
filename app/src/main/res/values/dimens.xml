@@ -7,6 +7,7 @@
     <!-- Text values -->
     <dimen name="text_size_small">13sp</dimen>
     <dimen name="text_size_normal">20sp</dimen>
+    <dimen name="text_size_big">25sp</dimen>
 
     <dimen name="text_size_biggest">34sp</dimen>
 

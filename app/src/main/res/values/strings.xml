@@ -21,4 +21,14 @@
     <string name="clear_all_meals">clear all meals</string>
     <string name="waiting_for_your_meal">Waiting for your meal :)</string>
     <string name="login">login</string>
+    <string name="today_s_summary">Today\'s summary</string>
+    <string name="caloriestextview">caloriesTextView</string>
+    <string name="proteinstextview">proteinsTextView</string>
+    <string name="fatstextview">fatsTextView</string>
+    <string name="carbstextview">carbsTextView</string>
+    <string name="_0_0">0/0</string>
+    <string name="calories_kcal">calories(kcal):</string>
+    <string name="proteins_g">proteins(g):</string>
+    <string name="fats_g">fats(g):</string>
+    <string name="carbs_g">carbs(g):</string>
 </resources>
