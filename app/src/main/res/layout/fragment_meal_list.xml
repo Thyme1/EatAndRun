@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/meal_list_background"
     tools:context="com.thyme.eatandrun.ui.meal.MealListFragment">
 
 
@@ -21,17 +22,16 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_meal_list"
             android:layout_width="match_parent"
-            android:layout_height="465dp"
+            android:layout_height="381dp"
             android:layout_margin="@dimen/separation_normal"
             android:scrollbars="vertical"
+            app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layoutManager="LinearLayoutManager"
-            app:stackFromEnd="true"
             app:reverseLayout="true"
-             />
+            app:stackFromEnd="true" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -84,10 +84,10 @@
                 app:backgroundTint="@color/blue_normal"
                 app:layout_constraintBottom_toTopOf="@+id/button_login"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toEndOf="@+id/button_login"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.8" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fabDeleteAllMeals"
@@ -106,10 +106,10 @@
                 app:backgroundTint="@color/blue_normal"
                 app:layout_constraintBottom_toTopOf="@+id/button_login"
                 app:layout_constraintEnd_toStartOf="@+id/button_login"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.673"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.8" />
 
             <Button
                 android:id="@+id/button_login"

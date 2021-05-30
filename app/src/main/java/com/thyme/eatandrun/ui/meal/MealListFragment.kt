@@ -65,7 +65,6 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
 
 
 
-
         viewModel.allToDos.observe(requireActivity()) { listMeal ->
             updateUi(listMeal)
             mealAdapter.mMeal = listMeal.asReversed()
