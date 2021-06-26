@@ -38,6 +38,9 @@
     <string name="activity">Activity:</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="_170">170</string>
+    <string name="_23">23</string>
+    <string name="_88">88</string>
     <string-array name="activities">
         <item>Basal Metabolic Rate (BMR)</item>
         <item>Sedentary: little or no exercise</item>
