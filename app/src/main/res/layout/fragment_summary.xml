@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.257">
 
         <TextView
-            android:id="@string/caloriestextview"
+            android:id="@+id/caloriestextview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
@@ -93,7 +93,7 @@
             android:textSize="@dimen/text_size_normal" />
 
         <TextView
-            android:id="@string/proteinstextview"
+            android:id="@+id/proteinstextview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
@@ -102,7 +102,7 @@
             android:textSize="@dimen/text_size_normal" />
 
         <TextView
-            android:id="@string/fatstextview"
+            android:id="@+id/fatstextview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
@@ -111,7 +111,7 @@
             android:textSize="@dimen/text_size_normal" />
 
         <TextView
-            android:id="@string/carbstextview"
+            android:id="@+id/carbstextview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
