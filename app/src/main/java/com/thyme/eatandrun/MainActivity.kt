@@ -6,6 +6,8 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.thyme.todolist.R
 import com.thyme.todolist.databinding.MainActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +26,17 @@ class MainActivity : AppCompatActivity() {
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigationView()
+
+        //Initialize the bottom navigation view
+        //create bottom navigation view object
+        val bottomNavigationView = findViewById<BottomNavigationView
+                >(R.id.bottomNavigationView)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        bottomNavigationView.setupWithNavController(
+            navController
+        )
+
     }
 
 

@@ -3,22 +3,19 @@
     package="com.thyme.todolist">
 
     <application
+        android:name="com.thyme.eatandrun.MainApplication"
+        android:allowBackup="false"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name="com.thyme.eatandrun.MainApplication"
+
         android:roundIcon="@mipmap/ic_launcher_round"
+
         android:supportsRtl="true"
-
-        android:allowBackup="false"
-
-        android:theme="@style/Theme.EatAndRun"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@style/Theme.EatAndRun">
         <activity android:name="com.thyme.eatandrun.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
