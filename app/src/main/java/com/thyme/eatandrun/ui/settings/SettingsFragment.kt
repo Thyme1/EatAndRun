@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.thyme.todolist.R
@@ -31,15 +30,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings), AdapterView.OnIte
         }
 
 
-
-
-
-
-
-
-
-
-
         val spinner: Spinner = binding.spinnerActivity
 
         val adapter = context?.let {
@@ -56,8 +46,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings), AdapterView.OnIte
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-        val text = parent.getItemAtPosition(position).toString()
-        Toast.makeText(parent.context, text, Toast.LENGTH_SHORT).show()
+
+
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}

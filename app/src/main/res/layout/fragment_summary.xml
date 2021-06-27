@@ -121,4 +121,18 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/cancelButton_summary"
+        style="@style/AppTheme.Button.Blue"
+        android:layout_width="110dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutSummaryNames"
+        app:layout_constraintVertical_bias="0.051" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

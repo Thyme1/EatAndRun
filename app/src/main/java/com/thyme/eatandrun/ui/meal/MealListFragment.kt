@@ -47,6 +47,15 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
             )
         }
 
+
+
+
+        binding.buttonSummary.setOnClickListener {
+            view.findNavController().navigate(
+                R.id.action_mealListFragment_to_summaryFragment
+            )
+        }
+
         binding.fabDeleteAllMeals.setOnClickListener {
             removeData()
         }

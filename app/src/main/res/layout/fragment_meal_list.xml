@@ -82,10 +82,10 @@
 
                 android:src="@drawable/plus_sign"
                 app:backgroundTint="@color/blue_normal"
-                app:layout_constraintBottom_toTopOf="@+id/button_login"
+                app:layout_constraintBottom_toTopOf="@+id/button_summary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
-                app:layout_constraintStart_toEndOf="@+id/button_login"
+                app:layout_constraintStart_toEndOf="@+id/button_summary"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.8" />
 
@@ -104,15 +104,15 @@
 
                 android:src="@drawable/minus_sign"
                 app:backgroundTint="@color/blue_normal"
-                app:layout_constraintBottom_toTopOf="@+id/button_login"
-                app:layout_constraintEnd_toStartOf="@+id/button_login"
+                app:layout_constraintBottom_toTopOf="@+id/button_summary"
+                app:layout_constraintEnd_toStartOf="@+id/button_summary"
                 app:layout_constraintHorizontal_bias="0.673"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.8" />
 
             <Button
-                android:id="@+id/button_login"
+                android:id="@+id/button_summary"
                 style="@style/AppTheme.Button.Blue"
                 android:layout_width="207dp"
                 android:layout_height="55dp"
