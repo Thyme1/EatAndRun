@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/navigation_meals"
+        android:id="@+id/mealListFragment"
         android:icon="@drawable/food_small"
         android:title="@string/meals" />
 
@@ -21,8 +20,7 @@
         android:title="@string/history" />
 
     <item
-        android:id="@+id/navigation_settings"
+        android:id="@+id/settingsFragment"
         android:icon="@drawable/settings_small"
         android:title="@string/settings" />
-
 </menu>
