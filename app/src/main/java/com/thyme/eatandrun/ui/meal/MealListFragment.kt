@@ -32,6 +32,7 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
             container,
             false
         )
+        getActivity()?.let { getActivity()?.getWindow()?.setStatusBarColor(it.getColor(R.color.blue_dark)) };
         return binding.root
     }
 

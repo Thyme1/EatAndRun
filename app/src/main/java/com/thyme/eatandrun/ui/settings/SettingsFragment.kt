@@ -23,11 +23,25 @@ class SettingsFragment : Fragment(R.layout.fragment_settings), AdapterView.OnIte
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        activity?.let {
+            activity?.window?.setStatusBarColor(it.getColor(R.color.green_dark))
+        }
+
+
+
+
+
+
+
+
+
 
 
         val spinner: Spinner = binding.spinnerActivity
+
         val adapter = context?.let {
             ArrayAdapter.createFromResource(
                 it,
