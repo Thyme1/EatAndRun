@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.thyme.eatandrun.data.Meal
+import com.thyme.eatandrun.data.MealModel
 import com.thyme.todolist.databinding.ItemMealBinding
 
 
@@ -15,19 +15,19 @@ class MealAdapter : RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
     inner class MealViewHolder(val binding: ItemMealBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    private val differCallback = object : DiffUtil.ItemCallback<Meal>() {
+    private val differCallback = object : DiffUtil.ItemCallback<MealModel>() {
 
-        override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
+        override fun areItemsTheSame(oldItem: MealModel, newItem: MealModel): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Meal, newItem: Meal): Boolean {
+        override fun areContentsTheSame(oldItem: MealModel, newItem: MealModel): Boolean {
             return oldItem == newItem
         }
     }
 
     private val differ = AsyncListDiffer(this, differCallback)
-    var mMeal: List<Meal>
+    var mMealModel: List<MealModel>
         get() = differ.currentList
         set(value) {
             differ.submitList(value)
@@ -43,7 +43,7 @@ class MealAdapter : RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
-        val currentMeal = mMeal[position]
+        val currentMeal = mMealModel[position]
 
         holder.binding.apply {
             kcalNumber.text = currentMeal.kcal.toString()
@@ -54,7 +54,7 @@ class MealAdapter : RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
 
     }
 
-    override fun getItemCount() = mMeal.size
+    override fun getItemCount() = mMealModel.size
 
 
 }

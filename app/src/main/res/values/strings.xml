@@ -43,6 +43,13 @@
     <string name="_88">88</string>
     <string name="current_settings">Current settings</string>
     <string name="none">None</string>
+    <string name="foodname">food name</string>
+    <string name="proteins">proteins</string>
+    <string name="carbs">carbs</string>
+    <string name="fats">fats</string>
+    <string name="total">total</string>
+    <string name="add_meal">Add meal</string>
+    <string name="enter_serving_in_grams">Enter serving in grams</string>
     <string-array name="activities">
         <item>Basal Metabolic Rate (BMR)</item>
         <item>Sedentary: little or no exercise</item>
@@ -52,4 +59,24 @@
         <item>Very Active: intense exercise 6–7 times/week</item>
         <item>Extra Active: very intense exercise daily, or physical job</item>
     </string-array>
+
+
+    <!--Add Food-->
+    <string name="display_kcal_per_100g">%,.0f kcal per 100g</string>
+    <string name="display_current_carbs">%,.0fg of Carbs</string>
+    <string name="display_current_proteins">%,.0fg of Proteins</string>
+    <string name="display_current_fats">%,.0fg of Fats</string>
+
+    <string name="format_grams">%,.0f g</string>
+    <string name="format_total_kcal">%,.0f kcal</string>
+    <string name="format_double">%,.0f</string>
+    <string name="format_percent">%d %%</string>
+    <string name="list_item">List Item</string>
+    <string name="search">search</string>
+    <string name="meal_not_found">meal not found</string>
+    <string name="don_t_have_an_account_yet_register_with_email">Don\'t have an account yet? Register with email</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="register">Register</string>
 </resources>

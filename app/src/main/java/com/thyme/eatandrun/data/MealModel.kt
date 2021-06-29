@@ -4,11 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "meal_table")
-data class Meal(
+data class MealModel(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
-    var name: String,
-    var grams: String,
+    var name: String?,
+    var grams: Double,
     var carbs: Double,
     var proteins: Double,
     var fats: Double,

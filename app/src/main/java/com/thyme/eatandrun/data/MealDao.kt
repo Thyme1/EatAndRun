@@ -11,18 +11,18 @@ import kotlinx.coroutines.flow.Flow
 interface MealDao {
 
     @Insert
-    suspend fun insert(food: Meal)
+    suspend fun insert(food: MealModel)
 
     @Query("SELECT * FROM meal_table ORDER BY id DESC")
-    fun getAllMeals(): Flow<List<Meal>>
+    fun getAllMeals(): Flow<List<MealModel>>
 
     @Query("SELECT * FROM meal_table WHERE date LIKE :day ORDER BY id ASC")
-    fun getAllMealsFromDay(day: String): LiveData<List<Meal>>
+    fun getAllMealsFromDay(day: String): LiveData<List<MealModel>>
 
     @Query("DELETE FROM meal_table")
     fun deleteAll()
 
     @Delete
-    fun deleteMeal(food: Meal)
+    fun deleteMeal(food: MealModel)
 
 }

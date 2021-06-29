@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.thyme.eatandrun.data.Meal
+import com.thyme.eatandrun.data.MealModel
 import com.thyme.eatandrun.ui.meal.addMeal.AddMealViewModel
 import com.thyme.todolist.R
 import com.thyme.todolist.databinding.FragmentMealListBinding
@@ -77,11 +77,11 @@ class MealListFragment : Fragment(R.layout.fragment_meal_list) {
 
         viewModel.allToDos.observe(requireActivity()) { listMeal ->
             updateUi(listMeal)
-            mealAdapter.mMeal = listMeal.asReversed()
+            mealAdapter.mMealModel = listMeal.asReversed()
         }
     }
 
-    private fun updateUi(list: List<Meal>) {
+    private fun updateUi(list: List<MealModel>) {
 
         if (list.isNotEmpty()) {
             binding.rvMealList.visibility = View.VISIBLE
