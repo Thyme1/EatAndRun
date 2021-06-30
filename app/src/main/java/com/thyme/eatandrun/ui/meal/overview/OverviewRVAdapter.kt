@@ -10,7 +10,8 @@ import com.thyme.eatandrun.utils.mealNameToShortString
 import com.thyme.todolist.R
 import com.thyme.todolist.databinding.ItemMealOverviewBinding
 
-class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) : RecyclerView.Adapter<OverviewRVAdapter.ViewHolder>()  {
+class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) :
+    RecyclerView.Adapter<OverviewRVAdapter.ViewHolder>() {
 
     var data = listOf<MealModel>()
         set(value) {
@@ -19,7 +20,10 @@ class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) : Recycler
         }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OverviewRVAdapter.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): OverviewRVAdapter.ViewHolder {
         return ViewHolder.from(parent, onBtnDeleteListener)
     }
 
@@ -34,8 +38,10 @@ class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) : Recycler
     }
 
 
-    class ViewHolder constructor(val binding: ItemMealOverviewBinding, val onBtnDeleteListener: OnBtnDeleteListener)
-        : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder constructor(
+        val binding: ItemMealOverviewBinding,
+        val onBtnDeleteListener: OnBtnDeleteListener
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         companion object {
             fun from(parent: ViewGroup, onBtnDeleteListener: OnBtnDeleteListener): ViewHolder {
@@ -47,11 +53,16 @@ class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) : Recycler
 
         fun bind(item: MealModel) {
             binding.tvItemOverviewName.text = item.name?.mealNameToShortString()
-            binding.tvItemOverviewGrams.text = CalorieCounterApplication.instance.getString(R.string.format_grams, item.grams)
-            binding.tvItemOverviewKcal.text = CalorieCounterApplication.instance.getString(R.string.format_total_kcal, item.kcal)
-            binding.tvItemOverviewCarbs.text = CalorieCounterApplication.instance.getString(R.string.format_grams, item.carbs)
-            binding.tvItemOverviewProteins.text = CalorieCounterApplication.instance.getString(R.string.format_grams, item.proteins)
-            binding.tvItemOverviewFats.text = CalorieCounterApplication.instance.getString(R.string.format_grams, item.fats)
+            binding.tvItemOverviewGrams.text =
+                CalorieCounterApplication.instance.getString(R.string.format_grams, item.grams)
+            binding.tvItemOverviewKcal.text =
+                CalorieCounterApplication.instance.getString(R.string.format_total_kcal, item.kcal)
+            binding.tvItemOverviewCarbs.text =
+                CalorieCounterApplication.instance.getString(R.string.format_grams, item.carbs)
+            binding.tvItemOverviewProteins.text =
+                CalorieCounterApplication.instance.getString(R.string.format_grams, item.proteins)
+            binding.tvItemOverviewFats.text =
+                CalorieCounterApplication.instance.getString(R.string.format_grams, item.fats)
         }
 
         fun click(item: MealModel) {

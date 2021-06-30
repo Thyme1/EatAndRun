@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.thyme.eatandrun.ui.login.auth.AuthActivity
@@ -16,7 +18,6 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
 
     override fun onOverviewCurrent(isCurrent: Boolean) {
         isOverviewCurrent = isCurrent
-
         //update menu
         invalidateOptionsMenu()
         if (isCurrent) {
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
         }
     }
 
-
     private var mAuth: FirebaseAuth? = null
+    private lateinit var navController: NavController
     private var isOverviewCurrent = false
 
     private var _selectedDate: String? = null
@@ -38,8 +39,10 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val binding = DataBindingUtil.setContentView<com.thyme.todolist.databinding.MainActivityBinding>(this, R.layout.main_activity)
 
         mAuth = FirebaseAuth.getInstance()
+
 
 
         val incomingIntent = intent
@@ -71,6 +74,8 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
     }
 
 
+
+
     private fun intentToAuthActivity() {
         val intent = Intent(this, AuthActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -78,4 +83,6 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
     }
 
 
+
 }
+
