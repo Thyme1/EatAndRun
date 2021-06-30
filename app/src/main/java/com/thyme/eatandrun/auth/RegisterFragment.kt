@@ -23,7 +23,11 @@ class RegisterFragment : Fragment() {
 
     private var mAuth: FirebaseAuth? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_register, container, false)
 
@@ -43,7 +47,7 @@ class RegisterFragment : Fragment() {
 
             if (!password.equals(passwordConfirm)) {
                 Toast.makeText(activity, "Passwords doesn't match", Toast.LENGTH_LONG).show()
-            } else if (!email.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty()){
+            } else if (!email.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty()) {
                 register(email, password)
             }
         }
@@ -52,15 +56,16 @@ class RegisterFragment : Fragment() {
     }
 
     fun register(email: String, password: String) {
-        mAuth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener(requireActivity()) { task ->
-            if (task.isSuccessful) {
-                // Register: succes
-                intentToMainActivity()
-            } else {
-                // Register: fail
-                Toast.makeText(activity, "Register fail", Toast.LENGTH_LONG).show()
+        mAuth!!.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    // Register: succes
+                    intentToMainActivity()
+                } else {
+                    // Register: fail
+                    Toast.makeText(activity, "Register fail", Toast.LENGTH_LONG).show()
+                }
             }
-        }
     }
 
     fun intentToMainActivity() {

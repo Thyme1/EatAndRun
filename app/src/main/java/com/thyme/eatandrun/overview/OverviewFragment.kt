@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.thyme.eatandrun.MainActivity
 import com.thyme.eatandrun.database.FoodDatabase
@@ -38,7 +38,7 @@ class OverviewFragment : Fragment() {
 
         val viewModelFactory = OverviewViewModelFactory(dataSource,application)
 
-        viewModel = ViewModelProviders.of(this, viewModelFactory)
+        viewModel = ViewModelProvider(this, viewModelFactory)
             .get(OverviewViewModel::class.java)
 
 

@@ -25,7 +25,11 @@ class LoginFragment : Fragment() {
 
     private var mAuth: FirebaseAuth? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
@@ -49,7 +53,7 @@ class LoginFragment : Fragment() {
             }
         }
 
-        toRegisterText.setOnClickListener (
+        toRegisterText.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_registerFragment)
         )
 
@@ -57,20 +61,22 @@ class LoginFragment : Fragment() {
     }
 
     fun login(email: String, password: String) {
-        mAuth!!.signInWithEmailAndPassword(email, password).addOnCompleteListener(activity!!) { task ->
+        mAuth!!.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Login : success
                     intentToMainActivity()
                 } else {
                     // Login: fail
-                    Toast.makeText(activity, "Email or password incorrect", Toast.LENGTH_LONG).show()
+                    Toast.makeText(activity, "Email or password incorrect", Toast.LENGTH_LONG)
+                        .show()
                 }
-        }
+            }
     }
 
     fun intentToMainActivity() {
         val intent = Intent(activity, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        activity!!.startActivity(intent)
+        requireActivity().startActivity(intent)
     }
 }

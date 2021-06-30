@@ -2,7 +2,7 @@ package com.thyme.eatandrun.network.model
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import kotlin.math.roundToInt
 
 @Parcelize

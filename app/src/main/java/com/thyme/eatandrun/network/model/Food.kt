@@ -3,7 +3,7 @@ package com.thyme.eatandrun.network.model
 import android.os.Parcelable
 import com.thyme.eatandrun.foodNameForLayout
 import com.thyme.eatandrun.foodNameToShortString
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Food (

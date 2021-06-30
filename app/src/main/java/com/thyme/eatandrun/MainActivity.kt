@@ -81,10 +81,6 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
         }
     }
 
-//    override fun onSupportNavigateUp(): Boolean {
-//        val navController = this.findNavController(R.id.nav_host_fragment)
-//        return navController.navigateUp()
-//    }
 
 
 
