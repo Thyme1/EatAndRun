@@ -2,18 +2,25 @@ package com.thyme.eatandrun
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.thyme.eatandrun.auth.AuthActivity
 import com.thyme.eatandrun.overview.OverviewFragment
 import com.thyme.todolist.R
+import com.thyme.todolist.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var mNavController: NavController
+    private lateinit var mAppBarConfiguration: AppBarConfiguration
 
     override fun onOverviewCurrent(isCurrent: Boolean) {
         isOverviewCurrent = isCurrent
@@ -38,13 +45,25 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<com.thyme.todolist.databinding.ActivityMainBinding>(this, R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupNavigationView()
+//        val binding = DataBindingUtil.setContentView<com.thyme.todolist.databinding.ActivityMainBinding>(this, R.layout.activity_main)
 
         mAuth = FirebaseAuth.getInstance()
 
 
-//        navController = this.findNavController(R.id.nav_main_fragment)
-//        NavigationUI.setupActionBarWithNavController(this, navController)
+        //Initialize the bottom navigation view
+        //create bottom navigation view object
+        val bottomNavigationView = findViewById<BottomNavigationView
+                >(R.id.bottomNavigationView)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        bottomNavigationView.setupWithNavController(
+            navController
+        )
+
+
 
         val incomingIntent = intent
         _selectedDate = incomingIntent.getStringExtra("date")
@@ -62,22 +81,10 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.nav_main_fragment)
-        return navController.navigateUp()
-    }
-
-    /** MENU */
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        if (isOverviewCurrent) {
-            menuInflater.inflate(R.menu.menu_main, menu)
-            return true
-        }
-        return false
-    }
-
-
-
+//    override fun onSupportNavigateUp(): Boolean {
+//        val navController = this.findNavController(R.id.nav_host_fragment)
+//        return navController.navigateUp()
+//    }
 
 
 
@@ -90,5 +97,22 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
 
 
 
+
+    private fun setupNavigationView() {
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        mNavController = navHostFragment.navController
+        mAppBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.action_overviewFragment_to_searchFragment,
+            )
+        )
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return mNavController.navigateUp(mAppBarConfiguration) || super.onSupportNavigateUp()
+    }
 
 }
