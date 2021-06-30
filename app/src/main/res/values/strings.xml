@@ -76,9 +76,9 @@
     <string name="don_t_have_an_account_yet_register_with_email">Don\'t have an account yet? Register with email</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="confirm_password">Confirm password</string>
     <string name="register">Register</string>
     <string name="select_date">Select Date</string>
     <string name="enter_serving_in_grams">Enter serving in grams</string>
     <string name="food_list">Food List</string>
+    <string name="confirm_password">Confirm password</string>
 </resources>

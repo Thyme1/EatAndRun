@@ -26,13 +26,7 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
         isOverviewCurrent = isCurrent
         //update menu
         invalidateOptionsMenu()
-        if (isCurrent) {
-            // set current day string
-            val dbFormattedDate = selectedDate ?: getCurrentDayString()
 
-        } else {
-            supportActionBar?.subtitle = ""
-        }
     }
 
     private var mAuth: FirebaseAuth? = null
@@ -40,7 +34,7 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
     private var isOverviewCurrent = false
 
     private var _selectedDate: String? = null
-    var selectedDate: String? = null
+    val selectedDate: String?
         get() = _selectedDate
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +42,6 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigationView()
-//        val binding = DataBindingUtil.setContentView<com.thyme.todolist.databinding.ActivityMainBinding>(this, R.layout.activity_main)
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -63,36 +56,25 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
             navController
         )
 
-
-
         val incomingIntent = intent
         _selectedDate = incomingIntent.getStringExtra("date")
-
-
 
     }
 
     override fun onStart() {
         super.onStart()
 
-        var user = mAuth!!.currentUser
+        val user = mAuth!!.currentUser
         if (user == null) {
             intentToAuthActivity()
         }
     }
-
-
-
 
     private fun intentToAuthActivity() {
         val intent = Intent(this, AuthActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
-
-
-
-
 
     private fun setupNavigationView() {
 

@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:windowSoftInputMode="adjustNothing"
-    tools:context="com.thyme.eatandrun.ui.settings.SettingsFragment">
+    tools:context="com.thyme.eatandrun.settings.SettingsFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"

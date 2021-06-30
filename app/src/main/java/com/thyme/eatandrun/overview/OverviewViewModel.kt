@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.thyme.eatandrun.getCurrentDayString
 import com.thyme.eatandrun.database.FoodDatabaseDao
 import com.thyme.eatandrun.database.FoodModel
+import com.thyme.eatandrun.getCurrentDayString
 import com.thyme.todolist.R
 import kotlinx.coroutines.*
 
@@ -24,8 +24,6 @@ class OverviewViewModel(
         dateSelected.value = newDate
     }
     /** LIVEDATA */
-//    val foods = database.getAllFoodFromDay(dateSelected.value ?: "")
-
     val foods = Transformations.switchMap(dateSelected) { date ->
         database.getAllFoodFromDay(date)
     }

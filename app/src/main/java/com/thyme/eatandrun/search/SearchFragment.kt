@@ -46,7 +46,7 @@ class SearchFragment : Fragment() {
 
         // Observe navigateToSelectedFood data and navigate if it isn't null
         // After navigate, set the selectedFood to null so that ViewModel is rdy for another navigation
-        viewModel.navigateToSelectedFood.observe(this, Observer {
+        viewModel.navigateToSelectedFood.observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 this.findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToAddFoodFragment(it))
                 // tell the viewModel we've mafe the navigate call
@@ -55,7 +55,7 @@ class SearchFragment : Fragment() {
         })
 
         // ProgressBar's Visibility
-        viewModel.searchInProgress.observe(this, Observer {
+        viewModel.searchInProgress.observe(viewLifecycleOwner, Observer {
             if (it == false) {
                 binding.searchProgressbar.visibility = View.INVISIBLE
             } else {
@@ -64,7 +64,7 @@ class SearchFragment : Fragment() {
         })
 
         // Food Not Found TV visibility
-        viewModel.showFoodNotFound.observe(this, Observer {
+        viewModel.showFoodNotFound.observe(viewLifecycleOwner, Observer {
             if (it == false) {
                 binding.searchRecyclerview.visibility = View.VISIBLE
                 binding.tvNotFound.visibility = View.INVISIBLE

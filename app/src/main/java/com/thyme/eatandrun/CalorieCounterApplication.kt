@@ -8,7 +8,6 @@ class CalorieCounterApplication : Application() {
         lateinit var instance: CalorieCounterApplication
     }
 
-
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())

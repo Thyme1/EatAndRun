@@ -9,7 +9,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.thyme.todolist.R
 import com.thyme.todolist.databinding.FragmentSettingsBinding
 
@@ -17,8 +16,6 @@ import com.thyme.todolist.databinding.FragmentSettingsBinding
 class SettingsFragment : Fragment(R.layout.fragment_settings), AdapterView.OnItemSelectedListener {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
-
-    private val viewModel: SettingsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
