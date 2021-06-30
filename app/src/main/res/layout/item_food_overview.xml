@@ -13,7 +13,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@drawable/meal_item_layout"
+        android:padding="5dp"
         android:layout_height="wrap_content">
 
 
