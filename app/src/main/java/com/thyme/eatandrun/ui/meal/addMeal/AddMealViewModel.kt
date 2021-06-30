@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.thyme.eatandrun.data.MealDao
+import com.thyme.eatandrun.data.MealDatabaseDao
 import com.thyme.eatandrun.data.MealModel
 import com.thyme.eatandrun.ui.meal.api.network.model.Meal
 import com.thyme.eatandrun.utils.getCurrentDayString
@@ -14,7 +14,7 @@ import kotlinx.coroutines.*
 
 class AddMealViewModel(
     meal: Meal,
-    val database: MealDao,
+    val database: MealDatabaseDao,
     app: Application
 ) : AndroidViewModel(app) {
 

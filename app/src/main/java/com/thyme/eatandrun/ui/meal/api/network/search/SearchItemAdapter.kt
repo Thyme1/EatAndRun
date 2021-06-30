@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.thyme.eatandrun.ui.meal.api.network.model.Meal
-import com.thyme.eatandrun.utils.foodNameToShortString
+import com.thyme.eatandrun.utils.mealNameToShortString
 import com.thyme.eatandrun.utils.toKcalString
 import com.thyme.todolist.databinding.ListItemSearchBinding
 
@@ -51,7 +51,7 @@ class SearchItemAdapter(val onClickListener: OnClickListener) :
 //            val res = binding.context.resources
 
 //            binding.searchItemName.text = convertFoodNameToShortString(item.label)
-            binding.searchItemName.text = item.label.foodNameToShortString()
+            binding.searchItemName.text = item.label.mealNameToShortString()
 //            binding.searchItemKcal.text = convertFoodKcalDoubletoString(item.nutrients.kcal)
             binding.searchItemKcal.text = item.nutrients.kcal.toKcalString()
         }

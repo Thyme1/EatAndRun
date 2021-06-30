@@ -1,7 +1,10 @@
 package com.thyme.eatandrun.data
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.thyme.eatandrun.utils.doublesToIntOrOne
+import kotlin.math.roundToInt
 
 @Entity(tableName = "meal_table")
 data class MealModel(
@@ -14,20 +17,19 @@ data class MealModel(
     var fats: Double,
     var kcal: Double,
     var date: String
-)
-//{
-//    @Ignore
-//    val totalNutrients: Int = doublesToIntOrOne(carbs, proteins, fats)
-//
-//    @Ignore
-//    val carbsPercent: Int = (100 * carbs.roundToInt() ) / totalNutrients
-//
-//    @Ignore
-//    val proteinPercent: Int = (100 * proteins.roundToInt()) / totalNutrients
-//
-//    @Ignore
-//    val fatPercent: Int = (100 * fats.roundToInt()) / totalNutrients
-//
-//    @Ignore
-//    val sumPercent: Int = carbsPercent + proteinPercent + fatPercent
-//}
+) {
+    @Ignore
+    val totalNutrients: Int = doublesToIntOrOne(carbs, proteins, fats)
+
+    @Ignore
+    val carbsPercent: Int = (100 * carbs.roundToInt()) / totalNutrients
+
+    @Ignore
+    val proteinPercent: Int = (100 * proteins.roundToInt()) / totalNutrients
+
+    @Ignore
+    val fatPercent: Int = (100 * fats.roundToInt()) / totalNutrients
+
+    @Ignore
+    val sumPercent: Int = carbsPercent + proteinPercent + fatPercent
+}

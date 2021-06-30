@@ -48,7 +48,7 @@ class LoginFragment : Fragment() {
         }
 
         toRegisterText.setOnClickListener (
-            Navigation.createNavigateOnClickListener(R.id.action_loginFragment2_to_registerFragment2)
+            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_registerFragment)
         )
 
         return view

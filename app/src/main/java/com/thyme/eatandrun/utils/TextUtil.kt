@@ -4,13 +4,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
 
-fun String.foodNameToShortString():String {
+fun String.mealNameToShortString():String {
     if (this.length <= 20)
         return this
     return this.substring(0, 20) + "..."
 }
 
-fun String.foodNameForLayout(): String {
+fun String.mealNameForLayout(): String {
     if (this.length <= 35)
         return this
     return this.substring(0, 35) + "..."
@@ -88,18 +88,18 @@ fun getMonthString(month: Int): String = when(month) {
 }
 
 fun String.monthToMonthComplete(): String = when(this) {
-    Month.JAN.name.lowercase(Locale.getDefault()) -> MonthComplet.JANUARY.name.toLowerCase()
-    Month.FEB.name.lowercase(Locale.getDefault()) -> MonthComplet.FEBRUARY.name.toLowerCase()
-    Month.MAR.name.lowercase(Locale.getDefault()) -> MonthComplet.MARCH.name.toLowerCase()
-    Month.APR.name.lowercase(Locale.getDefault()) -> MonthComplet.APRIL.name.toLowerCase()
-    Month.MAY.name.lowercase(Locale.getDefault()) -> MonthComplet.MAY.name.toLowerCase()
-    Month.JUN.name.lowercase(Locale.getDefault()) -> MonthComplet.JUNE.name.toLowerCase()
-    Month.JUL.name.lowercase(Locale.getDefault()) -> MonthComplet.JULY.name.toLowerCase()
-    Month.AUG.name.lowercase(Locale.getDefault()) -> MonthComplet.AUGUST.name.toLowerCase()
-    Month.SEP.name.lowercase(Locale.getDefault()) -> MonthComplet.SEPTEMBER.name.toLowerCase()
-    Month.OCT.name.lowercase(Locale.getDefault()) -> MonthComplet.OCTOMBER.name.toLowerCase()
-    Month.NOV.name.lowercase(Locale.getDefault()) -> MonthComplet.NOVEMBER.name.toLowerCase()
-    Month.DEC.name.lowercase(Locale.getDefault()) -> MonthComplet.DECEMBER.name.toLowerCase()
+    Month.JAN.name.lowercase(Locale.getDefault()) -> MonthComplet.JANUARY.name.lowercase(Locale.getDefault())
+    Month.FEB.name.lowercase(Locale.getDefault()) -> MonthComplet.FEBRUARY.name.lowercase(Locale.getDefault())
+    Month.MAR.name.lowercase(Locale.getDefault()) -> MonthComplet.MARCH.name.lowercase(Locale.getDefault())
+    Month.APR.name.lowercase(Locale.getDefault()) -> MonthComplet.APRIL.name.lowercase(Locale.getDefault())
+    Month.MAY.name.lowercase(Locale.getDefault()) -> MonthComplet.MAY.name.lowercase(Locale.getDefault())
+    Month.JUN.name.lowercase(Locale.getDefault()) -> MonthComplet.JUNE.name.lowercase(Locale.getDefault())
+    Month.JUL.name.lowercase(Locale.getDefault()) -> MonthComplet.JULY.name.lowercase(Locale.getDefault())
+    Month.AUG.name.lowercase(Locale.getDefault()) -> MonthComplet.AUGUST.name.lowercase(Locale.getDefault())
+    Month.SEP.name.lowercase(Locale.getDefault()) -> MonthComplet.SEPTEMBER.name.lowercase(Locale.getDefault())
+    Month.OCT.name.lowercase(Locale.getDefault()) -> MonthComplet.OCTOMBER.name.lowercase(Locale.getDefault())
+    Month.NOV.name.lowercase(Locale.getDefault()) -> MonthComplet.NOVEMBER.name.lowercase(Locale.getDefault())
+    Month.DEC.name.lowercase(Locale.getDefault()) -> MonthComplet.DECEMBER.name.lowercase(Locale.getDefault())
     else -> ""
 }
 

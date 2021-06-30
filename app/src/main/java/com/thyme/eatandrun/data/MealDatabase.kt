@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [MealModel::class], version = 1, exportSchema = false)
 abstract class MealDatabase : RoomDatabase() {
 
-    abstract val mealDatabaseDao: MealDao
+    abstract val mealDatabaseDao: MealDatabaseDao
 
     companion object {
 

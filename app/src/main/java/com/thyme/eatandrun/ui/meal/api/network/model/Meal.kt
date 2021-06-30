@@ -1,8 +1,8 @@
 package com.thyme.eatandrun.ui.meal.api.network.model
 
 import android.os.Parcelable
-import com.thyme.eatandrun.utils.foodNameForLayout
-import com.thyme.eatandrun.utils.foodNameToShortString
+import com.thyme.eatandrun.utils.mealNameForLayout
+import com.thyme.eatandrun.utils.mealNameToShortString
 import kotlinx.android.parcel.Parcelize
 
 
@@ -16,9 +16,9 @@ data class Meal (
     val categoryLabel: String = ""
 ) : Parcelable {
     val shortName
-        get() = label.foodNameToShortString()
+        get() = label.mealNameToShortString()
 
     val layoutName
-        get() = label.foodNameForLayout()
+        get() = label.mealNameForLayout()
 
 }

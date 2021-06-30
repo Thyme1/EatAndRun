@@ -12,9 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.thyme.eatandrun.data.MealDatabase
 import com.thyme.todolist.R
 import com.thyme.todolist.databinding.FragmentAddMealBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class  AddMealFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,7 +33,7 @@ class  AddMealFragment : Fragment() {
 
         viewModel.navigateToOverview.observe(viewLifecycleOwner, Observer {
             if (it) {
-                this.findNavController().navigate(AddMealFragmentDirections.actionAddMealFragmentToMealListFragment())
+                this.findNavController().navigate(AddMealFragmentDirections.actionAddMealFragmentToOverviewFragment())
 //                Navigation.createNavigateOnClickListener(R.id.action_addFoodFragment_to_overviewFragment)
 //                viewModel.onNavigateToOverviewCompleted()
             }

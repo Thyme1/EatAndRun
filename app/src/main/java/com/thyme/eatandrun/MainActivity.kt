@@ -1,63 +1,81 @@
 package com.thyme.eatandrun
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.thyme.eatandrun.ui.login.auth.AuthActivity
+import com.thyme.eatandrun.ui.meal.overview.OverviewFragment
+import com.thyme.eatandrun.utils.getCurrentDayString
 import com.thyme.todolist.R
-import com.thyme.todolist.databinding.MainActivityBinding
-import dagger.hilt.android.AndroidEntryPoint
-
-@AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
 
 
-    private lateinit var binding: MainActivityBinding
-    private lateinit var mNavController: NavController
-    private lateinit var mAppBarConfiguration: AppBarConfiguration
+class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
 
+    override fun onOverviewCurrent(isCurrent: Boolean) {
+        isOverviewCurrent = isCurrent
+
+        //update menu
+        invalidateOptionsMenu()
+        if (isCurrent) {
+            // set current day string
+            val dbFormattedDate = selectedDate ?: getCurrentDayString()
+
+        } else {
+            supportActionBar?.subtitle = ""
+        }
+    }
+
+
+    private var mAuth: FirebaseAuth? = null
+    private var isOverviewCurrent = false
+
+    private var _selectedDate: String? = null
+    var selectedDate: String? = null
+        get() = _selectedDate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MainActivityBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setupNavigationView()
+
+        mAuth = FirebaseAuth.getInstance()
 
 
-        //Initialize the bottom navigation view
-        //create bottom navigation view object
-        val bottomNavigationView = findViewById<BottomNavigationView
-                >(R.id.bottomNavigationView)
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        bottomNavigationView.setupWithNavController(
-            navController
-        )
+        val incomingIntent = intent
+        _selectedDate = incomingIntent.getStringExtra("date")
 
     }
 
+    override fun onStart() {
+        super.onStart()
 
-    private fun setupNavigationView() {
-
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-
-        mNavController = navHostFragment.navController
-        mAppBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.action_mealListFragment_to_addMealFragment,
-                R.id.action_addMealFragment_to_mealListFragment
-            )
-        )
+        var user = mAuth!!.currentUser
+        if (user == null) {
+            intentToAuthActivity()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return mNavController.navigateUp(mAppBarConfiguration) || super.onSupportNavigateUp()
+        val navController = this.findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp()
     }
+
+    /** MENU */
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        if (isOverviewCurrent) {
+            menuInflater.inflate(R.menu.bottom_nav_menu, menu)
+            return true
+        }
+        return false
+    }
+
+
+    private fun intentToAuthActivity() {
+        val intent = Intent(this, AuthActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+    }
+
 
 }

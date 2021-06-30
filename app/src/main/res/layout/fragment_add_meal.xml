@@ -75,7 +75,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_kcal_per_100"
                 app:layout_constraintStart_toStartOf="@id/guid_add_food_start"
                 app:layout_constraintEnd_toStartOf="@id/guid_add_food_end"
-                app:corner_radius="16dp">
+                >
 
             <LinearLayout
                     android:id="@+id/chart_value_carbs"

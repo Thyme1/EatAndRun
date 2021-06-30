@@ -3,34 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/mealListFragment">
-    <fragment android:id="@+id/searchFragment"
+    app:startDestination="@id/overviewFragment">
+    <fragment
+        android:id="@+id/searchFragment"
         android:name="com.thyme.eatandrun.ui.meal.api.network.search.SearchFragment"
         android:label="@string/search"
         tools:layout="@layout/fragment_search">
 
-        <action android:id="@+id/action_searchFragment_to_addMealFragment"
-            app:destination="@id/addMealFragment"
-            />
+        <action
+            android:id="@+id/action_searchFragment_to_addMealFragment"
+            app:destination="@id/addMealFragment" />
     </fragment>
 
-    <fragment android:id="@+id/addMealFragment"
+    <fragment
+        android:id="@+id/addMealFragment"
         android:name="com.thyme.eatandrun.ui.meal.addMeal.AddMealFragment"
         android:label="food macros"
         tools:layout="@layout/fragment_add_meal">
 
         <argument
             android:name="selectedMeal"
-            app:argType="com.thyme.eatandrun.ui.meal.api.network.model.Meal"/>
-        <action android:id="@+id/action_addMealFragment_to_MealListFragment"
-            app:destination="@id/mealListFragment"
-            app:popUpTo="@+id/mealListFragment" app:popUpToInclusive="true"
-            />
+            app:argType="com.thyme.eatandrun.ui.meal.api.network.model.Meal" />
+        <action
+            android:id="@+id/action_addMealFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment"
+            app:popUpTo="@+id/overviewFragment"
+            app:popUpToInclusive="true" />
     </fragment>
-    <fragment android:id="@+id/overviewFragment"
-        android:name="com.thyme.eatandrun.ui.meal.MealListFragment"
-        android:label="MealList" tools:layout="@layout/fragment_meal_list">
-        <action android:id="@+id/action_mealListFragment_to_searchFragment" app:destination="@id/searchFragment"/>
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.thyme.eatandrun.ui.meal.overview.OverviewFragment"
+        android:label="overview"
+        tools:layout="@layout/fragment_overview">
+        <action
+            android:id="@+id/action_overviewFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 
 </navigation>

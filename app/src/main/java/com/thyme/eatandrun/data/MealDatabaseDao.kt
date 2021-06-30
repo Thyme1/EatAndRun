@@ -8,7 +8,7 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface MealDao {
+interface MealDatabaseDao {
 
     @Insert
     suspend fun insert(food: MealModel)
