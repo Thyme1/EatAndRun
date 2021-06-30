@@ -1,5 +1,6 @@
 package com.thyme.eatandrun.ui.meal.api.network
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.thyme.eatandrun.ui.meal.api.network.model.ResponseJson
@@ -19,17 +20,16 @@ private val moshi = Moshi.Builder()
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .baseUrl(BASE_URL)
     .build()
 
 interface MealDatabaseApiService {
 
     @GET("parser?")
-    fun getSpecificMeal(
-        @Query("ingr") food: String,
-        @Query("app_id") appId: String = APP_ID,
-        @Query("app_key") appKey: String = APP_KEY
-    ):
+    fun getSpecificMeal(@Query("ingr") food: String,
+                        @Query("app_id") appId: String = APP_ID,
+                        @Query("app_key") appKey: String = APP_KEY):
             Deferred<ResponseJson>
 }
 

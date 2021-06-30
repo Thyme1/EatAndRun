@@ -1,11 +1,12 @@
 package com.thyme.eatandrun.ui.meal.api.network.model
+
 import android.os.Parcelable
 import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 import kotlin.math.roundToInt
 
 @Parcelize
-data class Nutrients (
+data class Nutrients(
     @Json(name = "ENERC_KCAL") val kcal: Double = 0.0,
     @Json(name = "PROCNT") val protein: Double = 0.0,
     @Json(name = "FAT") val fat: Double = 0.0,
