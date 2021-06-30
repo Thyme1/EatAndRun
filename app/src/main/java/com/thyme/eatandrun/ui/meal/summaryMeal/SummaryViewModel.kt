@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 
 class SummaryViewModel: ViewModel() {
     var _calories = MutableLiveData<Double>()
-    val calories : LiveData<Double> = _calories
 
     var _proteins = MutableLiveData<Double>()
     val proteins : LiveData<Double> = _proteins

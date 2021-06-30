@@ -20,30 +20,28 @@ class OverviewViewModel(
 
 
     var dateSelected = MutableLiveData(getCurrentDayString())
-    fun setDateSelected(newDate: String) {
-        dateSelected.value = newDate
-    }
+
     /** LIVEDATA */
 //    val foods = database.getAllFoodFromDay(dateSelected.value ?: "")
 
-    val foods = Transformations.switchMap(dateSelected) { date ->
+    val meals = Transformations.switchMap(dateSelected) { date ->
         database.getAllMealsFromDay(date)
     }
 
 
-    val foodTotal = Transformations.map(foods) {foods ->
+    val mealTotal = Transformations.map(meals) { meals ->
         var gramsTotal = 0.0
         var carbsTotal = 0.0
         var proteinsTotal = 0.0
         var fatsTotal = 0.0
         var kcalTotal = 0.0
 
-        for (food in foods) {
-            gramsTotal += food.grams
-            carbsTotal += food.carbs
-            proteinsTotal += food.proteins
-            fatsTotal += food.fats
-            kcalTotal += food.kcal
+        for (meal in meals) {
+            gramsTotal += meal.grams
+            carbsTotal += meal.carbs
+            proteinsTotal += meal.proteins
+            fatsTotal += meal.fats
+            kcalTotal += meal.kcal
         }
 
         MealModel(
@@ -58,32 +56,32 @@ class OverviewViewModel(
 
     }
 
-    val displayTotalKcal = Transformations.map(foodTotal) { food ->
-        app.applicationContext.getString(R.string.format_double, food.kcal)
+    val displayTotalKcal = Transformations.map(mealTotal) { meal ->
+        app.applicationContext.getString(R.string.format_double, meal.kcal)
     }
 
-    val displayTotalCarbs = Transformations.map(foodTotal) { food ->
-        app.applicationContext.getString(R.string.format_double, food.carbs)
+    val displayTotalCarbs = Transformations.map(mealTotal) { meal ->
+        app.applicationContext.getString(R.string.format_double, meal.carbs)
     }
 
-    val displayTotalProteins = Transformations.map(foodTotal) { food ->
-        app.applicationContext.getString(R.string.format_double, food.proteins)
+    val displayTotalProteins = Transformations.map(mealTotal) { meal ->
+        app.applicationContext.getString(R.string.format_double, meal.proteins)
     }
 
-    val displayTotalFats = Transformations.map(foodTotal) { food ->
-        app.applicationContext.getString(R.string.format_double, food.fats)
+    val displayTotalFats = Transformations.map(mealTotal) { meal ->
+        app.applicationContext.getString(R.string.format_double, meal.fats)
     }
 
-    val displayCarbsPercent = Transformations.map(foodTotal) { food ->
-        app.applicationContext.getString(R.string.format_percent, food.carbsPercent)
+    val displayCarbsPercent = Transformations.map(mealTotal) { meal ->
+        app.applicationContext.getString(R.string.format_percent, meal.carbsPercent)
     }
 
-    val displayProteinsPercent = Transformations.map(foodTotal) { food ->
-        app.applicationContext.getString(R.string.format_percent, food.proteinPercent)
+    val displayProteinsPercent = Transformations.map(mealTotal) { meal ->
+        app.applicationContext.getString(R.string.format_percent, meal.proteinPercent)
     }
 
-    val displayFatsPercent = Transformations.map(foodTotal) { food ->
-        app.applicationContext.getString(R.string.format_percent, food.fatPercent)
+    val displayFatsPercent = Transformations.map(mealTotal) { meal ->
+        app.applicationContext.getString(R.string.format_percent, meal.fatPercent)
     }
 
     /** DATABASE */
@@ -93,21 +91,15 @@ class OverviewViewModel(
         }
     }
 
-    fun onDeleteAll() {
-        uiScope.launch {
-            deleteAll()
-        }
-    }
-
-    private suspend fun deleteFood(foodModel: MealModel) {
+    private suspend fun deleteMeal(mealModel: MealModel) {
         withContext(Dispatchers.IO) {
-            database.deleteMeal(foodModel)
+            database.deleteMeal(mealModel)
         }
     }
 
-    fun onDeleteChoosedFood(foodModel: MealModel) {
+    fun onDeleteChoosedMeal(mealModel: MealModel) {
         uiScope.launch {
-            deleteFood(foodModel)
+            deleteMeal(mealModel)
         }
     }
 

@@ -22,7 +22,7 @@ class SearchViewModel : ViewModel() {
     val searchListMeal: LiveData<List<Meal>>
         get() = _searchListMeal
 
-    // Internally, we use a MutableLiveData to handle navigation to the selected food
+    // Internally, we use a MutableLiveData to handle navigation to the selected meal
     private val _navigateToSelectedMeal = MutableLiveData<Meal?>()
 
     val navigateToSelectedMeal: MutableLiveData<Meal?>
@@ -65,7 +65,7 @@ class SearchViewModel : ViewModel() {
     }
 
     /**
-     * When the property is clicked, set the [_navigateToSelectedFood] [MutableLiveData]
+     * When the property is clicked, set the [_navigateToSelectedMeal] [MutableLiveData]
      * @param meal that was clicked
      */
     fun displayAddMeal(meal: Meal) {
@@ -73,7 +73,7 @@ class SearchViewModel : ViewModel() {
     }
 
     /**
-     * After the navigation has taken place, make sure navigateToSelectedFood is set to null
+     * After the navigation has taken place, make sure navigateToSelectedMeal is set to null
      */
     fun displayAddMealIsComplete() {
         _navigateToSelectedMeal.value = null

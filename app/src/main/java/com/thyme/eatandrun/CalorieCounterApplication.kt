@@ -11,7 +11,7 @@ class CalorieCounterApplication : Application() {
 
 
     override fun onCreate() {
-        FirebaseApp.initializeApp(this);
+        FirebaseApp.initializeApp(this)
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         instance = this

@@ -43,8 +43,8 @@ class AddMealViewModel(
 
     /** UI's LiveData */
 
-    val displayKcalPer100G = Transformations.map(selectedMeal) { food ->
-        app.applicationContext.getString(R.string.display_kcal_per_100g, food.nutrients.kcal)
+    val displayKcalPer100G = Transformations.map(selectedMeal) { meal ->
+        app.applicationContext.getString(R.string.display_kcal_per_100g, meal.nutrients.kcal)
     }
 
 
@@ -88,27 +88,27 @@ class AddMealViewModel(
         }
     }
 
-    val displayCarbsPercent = Transformations.map(selectedMeal) { food ->
-        app.applicationContext.getString(R.string.format_percent, food.nutrients.carbsPercent)
+    val displayCarbsPercent = Transformations.map(selectedMeal) { meal ->
+        app.applicationContext.getString(R.string.format_percent, meal.nutrients.carbsPercent)
     }
 
-    val displayProteinsPercent = Transformations.map(selectedMeal) { food ->
-        app.applicationContext.getString(R.string.format_percent, food.nutrients.proteinPercent)
+    val displayProteinsPercent = Transformations.map(selectedMeal) { meal ->
+        app.applicationContext.getString(R.string.format_percent, meal.nutrients.proteinPercent)
     }
 
-    val displayFatsPercent = Transformations.map(selectedMeal) { food ->
-        app.applicationContext.getString(R.string.format_percent, food.nutrients.fatPercent)
+    val displayFatsPercent = Transformations.map(selectedMeal) { meal ->
+        app.applicationContext.getString(R.string.format_percent, meal.nutrients.fatPercent)
     }
 
     /** Database */
 
-    private suspend fun insert(foodModel: MealModel) {
+    private suspend fun insert(mealModel: MealModel) {
         withContext(Dispatchers.IO) {
-            database.insert(foodModel)
+            database.insert(mealModel)
         }
     }
 
-    fun onAddFoodSave() {
+    fun onAddMealSave() {
         uiScope.launch {
             val carbsPerOneGram = selectedMeal.value!!.nutrients.carbs / 100
             val proteinsPerOneGram = selectedMeal.value!!.nutrients.protein / 100

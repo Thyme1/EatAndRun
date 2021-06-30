@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.thyme.eatandrun.ui.login.auth.AuthActivity
@@ -30,11 +29,10 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
     }
 
     private var mAuth: FirebaseAuth? = null
-    private lateinit var navController: NavController
     private var isOverviewCurrent = false
 
     private var _selectedDate: String? = null
-    var selectedDate: String? = null
+    val selectedDate: String?
         get() = _selectedDate
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +58,7 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.nav_host_fragment)
+        val navController = this.findNavController(R.id.nav_main_fragment)
         return navController.navigateUp()
     }
 

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.thyme.todolist.R
@@ -27,7 +26,7 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate<FragmentSearchBinding>(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_search,
             container,
@@ -46,7 +45,7 @@ class SearchFragment : Fragment() {
         })
         binding.searchRecyclerview.adapter = adapter
 
-        viewModel.searchListMeal.observe(viewLifecycleOwner, Observer {
+        viewModel.searchListMeal.observe(viewLifecycleOwner, {
             it?.let {
                 adapter.data = it
             }
@@ -54,7 +53,7 @@ class SearchFragment : Fragment() {
 
         // Observe navigateToSelectedFood data and navigate if it isn't null
         // After navigate, set the selectedFood to null so that ViewModel is rdy for another navigation
-        viewModel.navigateToSelectedMeal.observe(viewLifecycleOwner, Observer {
+        viewModel.navigateToSelectedMeal.observe(viewLifecycleOwner, {
             if (it != null) {
                 this.findNavController()
                     .navigate(SearchFragmentDirections.actionSearchFragmentToAddMealFragment(it))
@@ -64,7 +63,7 @@ class SearchFragment : Fragment() {
         })
 
         // ProgressBar's Visibility
-        viewModel.searchInProgress.observe(viewLifecycleOwner, Observer {
+        viewModel.searchInProgress.observe(viewLifecycleOwner, {
             if (it == false) {
                 binding.searchProgressbar.visibility = View.INVISIBLE
             } else {
@@ -73,7 +72,7 @@ class SearchFragment : Fragment() {
         })
 
         // Food Not Found TV visibility
-        viewModel.showMealNotFound.observe(viewLifecycleOwner, Observer {
+        viewModel.showMealNotFound.observe(viewLifecycleOwner, {
             if (it == false) {
                 binding.searchRecyclerview.visibility = View.VISIBLE
                 binding.tvNotFound.visibility = View.INVISIBLE

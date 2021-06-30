@@ -15,7 +15,7 @@ import com.thyme.todolist.databinding.FragmentAddMealBinding
 
 class  AddMealFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val application = requireNotNull(activity).application
 
         // Inflate the layout for this fragment
@@ -31,7 +31,7 @@ class  AddMealFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-        viewModel.navigateToOverview.observe(viewLifecycleOwner, Observer {
+        viewModel.navigateToOverview.observe(viewLifecycleOwner, {
             if (it) {
                 this.findNavController().navigate(AddMealFragmentDirections.actionAddMealFragmentToOverviewFragment())
 //                Navigation.createNavigateOnClickListener(R.id.action_addFoodFragment_to_overviewFragment)

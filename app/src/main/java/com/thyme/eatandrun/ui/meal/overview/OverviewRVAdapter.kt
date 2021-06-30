@@ -23,13 +23,13 @@ class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): OverviewRVAdapter.ViewHolder {
+    ): ViewHolder {
         return ViewHolder.from(parent, onBtnDeleteListener)
     }
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: OverviewRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
         holder.bind(item)
         holder.click(item)
@@ -75,8 +75,8 @@ class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) :
     }
 
 
-    class OnBtnDeleteListener(val clickListener: (foodModel: MealModel) -> Unit) {
-        fun onClick(foodModel: MealModel) = clickListener(foodModel)
+    class OnBtnDeleteListener(val clickListener: (mealModel: MealModel) -> Unit) {
+        fun onClick(mealModel: MealModel) = clickListener(mealModel)
     }
 
 }

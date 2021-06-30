@@ -85,7 +85,7 @@
                     android:layout_height="16dp"
                     android:orientation="horizontal"
                     android:layout_marginTop="@dimen/separation_normal"
-                    android:weightSum="@{viewModel.foodTotal.sumPercent + 2}"
+                    android:weightSum="@{viewModel.mealTotal.sumPercent + 2}"
                     android:background="@color/grey"
                     app:layout_constraintTop_toBottomOf="@id/cly_title"
                     app:layout_constraintStart_toStartOf="@id/guid_overview_start"
@@ -96,7 +96,7 @@
                         android:id="@+id/chart_value_carbs"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="@{viewModel.foodTotal.carbsPercent}"
+                        android:layout_weight="@{viewModel.mealTotal.carbsPercent}"
                         android:orientation="horizontal"
                         android:background="@color/blue_dark"/>
                 <LinearLayout
@@ -110,7 +110,7 @@
                         android:id="@+id/chart_value_proteins"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="@{viewModel.foodTotal.proteinPercent}"
+                        android:layout_weight="@{viewModel.mealTotal.proteinPercent}"
                         android:orientation="horizontal"
                         android:background="@color/green_dark"/>
 
@@ -124,7 +124,7 @@
                         android:id="@+id/chart_value_fats"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="@{viewModel.foodTotal.fatPercent}"
+                        android:layout_weight="@{viewModel.mealTotal.fatPercent}"
                         android:orientation="horizontal"
                         android:background="@color/orange"/>
 
@@ -295,7 +295,8 @@
                             android:background="@null"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
+                            app:layout_constraintBottom_toBottomOf="parent"
+                        android:contentDescription="TODO" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

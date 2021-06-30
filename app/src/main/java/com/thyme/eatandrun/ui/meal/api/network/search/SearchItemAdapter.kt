@@ -22,13 +22,13 @@ class SearchItemAdapter(val onClickListener: OnClickListener) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): SearchItemAdapter.ViewHolder {
+    ): ViewHolder {
         return ViewHolder.from(parent)
     }
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: SearchItemAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
         holder.itemView.setOnClickListener {
             onClickListener.onClick(item)
@@ -67,8 +67,8 @@ class SearchItemAdapter(val onClickListener: OnClickListener) :
      * It will be called in onBindViewHolder
      * @param clickListener lambda that will be called with the current [Food]
      */
-    class OnClickListener(val clickListener: (food: Meal) -> Unit) {
-        fun onClick(food: Meal) = clickListener(food)
+    class OnClickListener(val clickListener: (meal: Meal) -> Unit) {
+        fun onClick(meal: Meal) = clickListener(meal)
     }
 
 

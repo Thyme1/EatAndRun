@@ -16,8 +16,6 @@ data class Meal (
     val category: String = "",
     val categoryLabel: String = ""
 ) : Parcelable {
-    val shortName
-        get() = label.mealNameToShortString()
 
     val layoutName
         get() = label.mealNameForLayout()
