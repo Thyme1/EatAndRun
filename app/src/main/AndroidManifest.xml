@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EatAndRun">
         <activity
-            android:name="com.thyme.eatandrun.ui.login.auth.AuthActivity"
+            android:name="com.thyme.eatandrun.auth.AuthActivity"
             android:noHistory="true">
         </activity>
         <activity android:name="com.thyme.eatandrun.MainActivity">

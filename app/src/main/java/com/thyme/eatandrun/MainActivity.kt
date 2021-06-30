@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.thyme.eatandrun.ui.login.auth.AuthActivity
-import com.thyme.eatandrun.ui.meal.overview.OverviewFragment
-import com.thyme.eatandrun.utils.getCurrentDayString
+import com.thyme.eatandrun.auth.AuthActivity
+import com.thyme.eatandrun.overview.OverviewFragment
 import com.thyme.todolist.R
 
 
@@ -29,19 +29,22 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
     }
 
     private var mAuth: FirebaseAuth? = null
+    private lateinit var navController: NavController
     private var isOverviewCurrent = false
 
     private var _selectedDate: String? = null
-    val selectedDate: String?
+    var selectedDate: String? = null
         get() = _selectedDate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<com.thyme.todolist.databinding.MainActivityBinding>(this, R.layout.main_activity)
+        val binding = DataBindingUtil.setContentView<com.thyme.todolist.databinding.ActivityMainBinding>(this, R.layout.activity_main)
 
         mAuth = FirebaseAuth.getInstance()
 
 
+//        navController = this.findNavController(R.id.nav_main_fragment)
+//        NavigationUI.setupActionBarWithNavController(this, navController)
 
         val incomingIntent = intent
         _selectedDate = incomingIntent.getStringExtra("date")
@@ -65,7 +68,7 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
     /** MENU */
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         if (isOverviewCurrent) {
-            menuInflater.inflate(R.menu.bottom_nav_menu, menu)
+            menuInflater.inflate(R.menu.menu_main, menu)
             return true
         }
         return false
@@ -83,4 +86,3 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
 
 
 }
-

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_auth"
-    app:startDestination="@id/loginFragment">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_auth"
+            app:startDestination="@id/loginFragment">
 
-    <fragment android:id="@+id/loginFragment" android:name="com.thyme.eatandrun.ui.login.auth.LoginFragment"
-        android:label="fragment_login" tools:layout="@layout/fragment_login">
+    <fragment android:id="@+id/loginFragment" android:name="com.thyme.eatandrun.auth.LoginFragment"
+              android:label="fragment_login" tools:layout="@layout/fragment_login">
         <action android:id="@+id/action_loginFragment_to_registerFragment" app:destination="@id/registerFragment"/>
     </fragment>
-    <fragment android:id="@+id/registerFragment" android:name="com.thyme.eatandrun.ui.login.auth.RegisterFragment"
-        android:label="fragment_register" tools:layout="@layout/fragment_register"/>
+    <fragment android:id="@+id/registerFragment" android:name="com.thyme.eatandrun.auth.RegisterFragment"
+              android:label="fragment_register" tools:layout="@layout/fragment_register"/>
 </navigation>

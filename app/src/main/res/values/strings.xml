@@ -49,7 +49,6 @@
     <string name="fats">fats</string>
     <string name="total">total</string>
     <string name="add_meal">Add meal</string>
-    <string name="enter_serving_in_grams">Enter serving in grams</string>
     <string-array name="activities">
         <item>Basal Metabolic Rate (BMR)</item>
         <item>Sedentary: little or no exercise</item>
@@ -79,4 +78,7 @@
     <string name="password">Password</string>
     <string name="confirm_password">confirm password</string>
     <string name="register">Register</string>
+    <string name="select_date">Select Date</string>
+    <string name="enter_serving_in_grams">Enter serving in grams</string>
+    <string name="food_list">Food List</string>
 </resources>
