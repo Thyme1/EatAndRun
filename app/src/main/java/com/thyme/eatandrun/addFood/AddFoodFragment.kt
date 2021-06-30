@@ -39,6 +39,9 @@ class AddFoodFragment : Fragment() {
             }
         })
 
+        activity?.let { activity?.window?.setStatusBarColor(it.getColor(R.color.blue_dark)) };
+
+
 
 
 

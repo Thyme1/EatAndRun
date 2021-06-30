@@ -33,6 +33,8 @@ class LoginFragment : Fragment() {
         passwordView = view.findViewById(R.id.login_password_view)
         loginButton = view.findViewById(R.id.login_button_view)
         toRegisterText = view.findViewById(R.id.to_register_text)
+        activity?.let { activity?.window?.setStatusBarColor(it.getColor(R.color.white)) };
+
 
 
 

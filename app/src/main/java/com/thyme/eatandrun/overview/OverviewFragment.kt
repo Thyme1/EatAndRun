@@ -26,6 +26,8 @@ class OverviewFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate<FragmentOverviewBinding>(inflater, R.layout.fragment_overview, container, false)
         binding.lifecycleOwner = this
+        activity?.let { activity?.window?.setStatusBarColor(it.getColor(R.color.blue_dark)) };
+
 
         binding.btnOverviewToSearch.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_overviewFragment_to_searchFragment)

@@ -49,6 +49,8 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
         val incomingIntent = intent
         _selectedDate = incomingIntent.getStringExtra("date")
 
+
+
     }
 
     override fun onStart() {
@@ -77,11 +79,15 @@ class MainActivity : AppCompatActivity(), OverviewFragment.OnOverviewCurrent {
 
 
 
+
+
     private fun intentToAuthActivity() {
         val intent = Intent(this, AuthActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
+
+
 
 
 

@@ -35,9 +35,11 @@ class RegisterFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
 
         registerButton.setOnClickListener {
-            var email = emailView.text.toString()
-            var password = passwordView.text.toString()
-            var passwordConfirm = passwordConfView.text.toString()
+            val email = emailView.text.toString()
+            val password = passwordView.text.toString()
+            val passwordConfirm = passwordConfView.text.toString()
+            activity?.let { activity?.window?.setStatusBarColor(it.getColor(R.color.white)) };
+
 
             if (!password.equals(passwordConfirm)) {
                 Toast.makeText(activity, "Passwords doesn't match", Toast.LENGTH_LONG).show()
