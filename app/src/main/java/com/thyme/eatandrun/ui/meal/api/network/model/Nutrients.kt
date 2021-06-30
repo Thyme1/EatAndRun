@@ -1,10 +1,13 @@
 package com.thyme.eatandrun.ui.meal.api.network.model
 
+
+import android.annotation.SuppressLint
 import android.os.Parcelable
 import com.squareup.moshi.Json
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import kotlin.math.roundToInt
 
+@SuppressLint("ParcelCreator")
 @Parcelize
 data class Nutrients(
     @Json(name = "ENERC_KCAL") val kcal: Double = 0.0,
@@ -13,7 +16,6 @@ data class Nutrients(
     @Json(name = "CHOCDF") val carbs: Double = 0.0,
     @Json(name = "FIBTG") val fiber: Double = 0.0
 ) : Parcelable {
-
     val totalNutrients = (protein + fat + carbs).roundToInt()
     val carbsPercent = (100 * carbs.roundToInt()) / totalNutrients
     val proteinPercent = (100 * protein.roundToInt()) / totalNutrients

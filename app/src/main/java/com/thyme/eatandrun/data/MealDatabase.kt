@@ -23,7 +23,7 @@ abstract class MealDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         MealDatabase::class.java,
-                        "food_database"
+                        "meal_database"
                     )
                         .fallbackToDestructiveMigration()
                         .build()

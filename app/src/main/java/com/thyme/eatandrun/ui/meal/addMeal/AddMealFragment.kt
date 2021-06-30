@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.thyme.eatandrun.data.MealDatabase
 import com.thyme.todolist.R
@@ -26,7 +26,7 @@ class  AddMealFragment : Fragment() {
         val dataSource = MealDatabase.getInstance(application).mealDatabaseDao
 
         val viewModelFactory = AddMealViewModelFactory(meal, dataSource, application)
-        val viewModel = ViewModelProviders.of(this,
+        val viewModel = ViewModelProvider(this,
             viewModelFactory).get(AddMealViewModel::class.java)
 
         binding.viewModel = viewModel

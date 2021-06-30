@@ -1,5 +1,5 @@
 package com.thyme.eatandrun.ui.meal.api.network.model
 
-data class Links (
+data class  Links (
     val next: Next
 )

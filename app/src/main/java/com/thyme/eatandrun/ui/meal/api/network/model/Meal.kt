@@ -3,7 +3,8 @@ package com.thyme.eatandrun.ui.meal.api.network.model
 import android.os.Parcelable
 import com.thyme.eatandrun.utils.mealNameForLayout
 import com.thyme.eatandrun.utils.mealNameToShortString
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
+
 
 
 

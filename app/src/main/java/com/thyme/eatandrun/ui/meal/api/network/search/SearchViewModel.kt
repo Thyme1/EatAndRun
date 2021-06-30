@@ -65,11 +65,11 @@ class SearchViewModel : ViewModel() {
     }
 
     /**
-     * When the property is clicked, set the [_navigateToSelectedMeal] [MutableLiveData]
-     * @param food that was clicked
+     * When the property is clicked, set the [_navigateToSelectedFood] [MutableLiveData]
+     * @param meal that was clicked
      */
-    fun displayAddMeal(food: Meal) {
-        _navigateToSelectedMeal.value = food
+    fun displayAddMeal(meal: Meal) {
+        _navigateToSelectedMeal.value = meal
     }
 
     /**

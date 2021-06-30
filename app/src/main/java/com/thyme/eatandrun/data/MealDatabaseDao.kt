@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface MealDatabaseDao {
 
     @Insert
-    suspend fun insert(food: MealModel)
+    suspend fun insert(meal: MealModel)
 
     @Query("SELECT * FROM meal_table ORDER BY id DESC")
     fun getAllMeals(): Flow<List<MealModel>>
@@ -23,6 +23,6 @@ interface MealDatabaseDao {
     fun deleteAll()
 
     @Delete
-    fun deleteMeal(food: MealModel)
+    fun deleteMeal(meal: MealModel)
 
 }

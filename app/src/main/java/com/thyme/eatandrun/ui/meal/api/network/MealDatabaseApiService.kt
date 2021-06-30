@@ -11,8 +11,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 private const val BASE_URL = "https://api.edamam.com/api/food-database/"
-private const val APP_ID = "fe29b6cc"
-private const val APP_KEY = "51221b44dc3601592b79b2e762436914"
+private const val APP_ID = "3864e61a"
+private const val APP_KEY = "03011149ae12a4b04b5049d50bee36fa"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())

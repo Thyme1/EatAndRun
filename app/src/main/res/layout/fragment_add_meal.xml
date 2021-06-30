@@ -44,7 +44,7 @@
 
         <TextView
                 android:id="@+id/tv_food_name"
-                android:text="@{viewModel.selectedFood.layoutName}"
+                android:text="@{viewModel.selectedMeal.layoutName}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="start"
@@ -71,7 +71,7 @@
                 android:layout_height="16dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/separation_normal"
-                android:weightSum="@{viewModel.selectedFood.nutrients.sumPercent + 2}"
+                android:weightSum="@{viewModel.selectedMeal.nutrients.sumPercent + 2}"
                 app:layout_constraintTop_toBottomOf="@id/tv_kcal_per_100"
                 app:layout_constraintStart_toStartOf="@id/guid_add_food_start"
                 app:layout_constraintEnd_toStartOf="@id/guid_add_food_end"
@@ -81,7 +81,7 @@
                     android:id="@+id/chart_value_carbs"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="@{viewModel.selectedFood.nutrients.carbsPercent}"
+                    android:layout_weight="@{viewModel.selectedMeal.nutrients.carbsPercent}"
                     android:orientation="horizontal"
                     android:background="@color/blue_normal"/>
             <LinearLayout
@@ -94,7 +94,7 @@
                     android:id="@+id/chart_value_proteins"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="@{viewModel.selectedFood.nutrients.proteinPercent}"
+                    android:layout_weight="@{viewModel.selectedMeal.nutrients.proteinPercent}"
                     android:orientation="horizontal"
                     android:background="@color/green_dark"/>
 
@@ -107,7 +107,7 @@
                     android:id="@+id/chart_value_fats"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="@{viewModel.selectedFood.nutrients.fatPercent}"
+                    android:layout_weight="@{viewModel.selectedMeal.nutrients.fatPercent}"
                     android:orientation="horizontal"
                     android:background="@color/orange"/>
 

@@ -16,7 +16,7 @@ data class MealModel(
     var proteins: Double,
     var fats: Double,
     var kcal: Double,
-    var date: String
+    var date: String?
 ) {
     @Ignore
     val totalNutrients: Int = doublesToIntOrOne(carbs, proteins, fats)

@@ -19,13 +19,16 @@ class SearchItemAdapter(val onClickListener: OnClickListener) :
         }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): SearchItemAdapter.ViewHolder {
         return ViewHolder.from(parent)
     }
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchItemAdapter.ViewHolder, position: Int) {
         val item = data[position]
         holder.itemView.setOnClickListener {
             onClickListener.onClick(item)

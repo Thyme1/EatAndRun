@@ -24,10 +24,10 @@ class AddMealViewModel(
 
 
     /** BINDABLES */
-    private val _selectedFood = MutableLiveData<Meal>()
+    private val _selectedMeal = MutableLiveData<Meal>()
 
-    val selectedFood: LiveData<Meal>
-        get() = _selectedFood
+    val selectedMeal: LiveData<Meal>
+        get() = _selectedMeal
 
     val currentGramsString = MutableLiveData<String>()
 
@@ -37,19 +37,19 @@ class AddMealViewModel(
 
     init {
         navigateToOverview.value = false
-        _selectedFood.value = meal
+        _selectedMeal.value = meal
         currentGramsString.value = "100"
     }
 
     /** UI's LiveData */
 
-    val displayKcalPer100G = Transformations.map(selectedFood) { food ->
+    val displayKcalPer100G = Transformations.map(selectedMeal) { food ->
         app.applicationContext.getString(R.string.display_kcal_per_100g, food.nutrients.kcal)
     }
 
 
     val displayCurrentCarbs = Transformations.map(currentGramsString) { gramsString ->
-        val carbsPerOneGram = selectedFood.value!!.nutrients.carbs / 100
+        val carbsPerOneGram = selectedMeal.value!!.nutrients.carbs / 100
 
         if (gramsString.isEmpty()) {
             app.applicationContext.getString(R.string.format_grams, "0".toDouble())
@@ -59,7 +59,7 @@ class AddMealViewModel(
     }
 
     val displayCurrentProteins = Transformations.map(currentGramsString) { gramsString ->
-        val proteinsPerOneGram = selectedFood.value!!.nutrients.protein / 100
+        val proteinsPerOneGram = selectedMeal.value!!.nutrients.protein / 100
 
         if (gramsString.isEmpty()) {
             app.applicationContext.getString(R.string.format_grams, "0".toDouble())
@@ -69,7 +69,7 @@ class AddMealViewModel(
     }
 
     val displayCurrentFats = Transformations.map(currentGramsString) { gramsString ->
-        val fatsPerOneGram = selectedFood.value!!.nutrients.fat / 100
+        val fatsPerOneGram = selectedMeal.value!!.nutrients.fat / 100
 
         if (gramsString.isEmpty()) {
             app.applicationContext.getString(R.string.format_grams, "0".toDouble())
@@ -79,7 +79,7 @@ class AddMealViewModel(
     }
 
     val displayCurrentTotalKcal = Transformations.map(currentGramsString) { gramsString ->
-        val kcalPerOneGram = selectedFood.value!!.nutrients.kcal / 100
+        val kcalPerOneGram = selectedMeal.value!!.nutrients.kcal / 100
 
         if (gramsString.isEmpty()) {
             app.applicationContext.getString(R.string.format_total_kcal, "0".toDouble())
@@ -88,15 +88,15 @@ class AddMealViewModel(
         }
     }
 
-    val displayCarbsPercent = Transformations.map(selectedFood) { food ->
+    val displayCarbsPercent = Transformations.map(selectedMeal) { food ->
         app.applicationContext.getString(R.string.format_percent, food.nutrients.carbsPercent)
     }
 
-    val displayProteinsPercent = Transformations.map(selectedFood) { food ->
+    val displayProteinsPercent = Transformations.map(selectedMeal) { food ->
         app.applicationContext.getString(R.string.format_percent, food.nutrients.proteinPercent)
     }
 
-    val displayFatsPercent = Transformations.map(selectedFood) { food ->
+    val displayFatsPercent = Transformations.map(selectedMeal) { food ->
         app.applicationContext.getString(R.string.format_percent, food.nutrients.fatPercent)
     }
 
@@ -110,15 +110,15 @@ class AddMealViewModel(
 
     fun onAddFoodSave() {
         uiScope.launch {
-            val carbsPerOneGram = selectedFood.value!!.nutrients.carbs / 100
-            val proteinsPerOneGram = selectedFood.value!!.nutrients.protein / 100
-            val fatsPerOneGram = selectedFood.value!!.nutrients.fat / 100
-            val kcalPerOneGram = selectedFood.value!!.nutrients.kcal / 100
+            val carbsPerOneGram = selectedMeal.value!!.nutrients.carbs / 100
+            val proteinsPerOneGram = selectedMeal.value!!.nutrients.protein / 100
+            val fatsPerOneGram = selectedMeal.value!!.nutrients.fat / 100
+            val kcalPerOneGram = selectedMeal.value!!.nutrients.kcal / 100
 
             val currentGrams = currentGramsString.value!!.toDouble()
 
             val mealModel = MealModel(
-                name = selectedFood.value?.layoutName,
+                name = selectedMeal.value?.layoutName,
                 grams = currentGrams,
                 carbs = currentGrams.times(carbsPerOneGram),
                 proteins = currentGrams.times(proteinsPerOneGram),
