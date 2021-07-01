@@ -8,6 +8,8 @@
 
     <application
         android:name="com.thyme.eatandrun.CalorieCounterApplication"
+        android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"
+
         android:allowBackup="false"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
@@ -26,7 +28,8 @@
 
         <activity
             android:name="com.thyme.eatandrun.MainActivity"
-            android:windowSoftInputMode="stateVisible|adjustPan">
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -11,19 +11,12 @@ import kotlin.math.roundToInt
 data class FoodModel (
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
-
     var name: String?,
-
     var grams: Double,
-
     var carbs: Double,
-
     var proteins: Double,
-
     var fats: Double,
-
     var kcal: Double,
-
     var date: String?
 
 ) {

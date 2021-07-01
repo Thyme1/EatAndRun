@@ -81,4 +81,6 @@
     <string name="enter_serving_in_grams">Enter serving in grams</string>
     <string name="food_list">Food List</string>
     <string name="confirm_password">Confirm password</string>
+    <string name="add_food_button">add food button</string>
+    <string name="delete_food_x">delete food x</string>
 </resources>

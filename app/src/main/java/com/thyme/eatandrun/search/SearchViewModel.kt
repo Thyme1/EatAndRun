@@ -20,9 +20,9 @@ class SearchViewModel : ViewModel() {
     val searchListFood: LiveData<List<Food>>
         get() = _searchListFood
 
-    private val _navigateToSelectedFood = MutableLiveData<Food>()
+    private val _navigateToSelectedFood = MutableLiveData<Food?>()
 
-    val navigateToSelectedFood: LiveData<Food>
+    val navigateToSelectedFood: MutableLiveData<Food?>
         get() = _navigateToSelectedFood
 
     val searchInProgress = MutableLiveData<Boolean>()

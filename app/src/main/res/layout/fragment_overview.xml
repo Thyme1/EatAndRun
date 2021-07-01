@@ -96,7 +96,8 @@
                 android:weightSum="@{viewModel.foodTotal.sumPercent + 2}"
                 app:layout_constraintEnd_toStartOf="@id/guid_overview_end"
                 app:layout_constraintStart_toStartOf="@id/guid_overview_start"
-                app:layout_constraintTop_toBottomOf="@id/cly_title">
+                app:layout_constraintTop_toBottomOf="@id/cly_title"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:id="@+id/chart_value_carbs"
@@ -148,7 +149,8 @@
                 android:weightSum="3"
                 app:layout_constraintEnd_toStartOf="@id/guid_overview_end"
                 app:layout_constraintStart_toStartOf="@id/guid_overview_start"
-                app:layout_constraintTop_toBottomOf="@id/lly_chart">
+                app:layout_constraintTop_toBottomOf="@id/lly_chart"
+                android:baselineAligned="false">
 
                 <!--CARBS-->
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -297,7 +299,8 @@
                         android:src="@drawable/plus_sign_filled"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/add_food_button" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
