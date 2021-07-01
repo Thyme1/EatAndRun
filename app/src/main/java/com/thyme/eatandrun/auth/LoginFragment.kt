@@ -45,10 +45,10 @@ class LoginFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
 
         loginButton.setOnClickListener {
-            var email = emailView.text.toString()
-            var password = passwordView.text.toString()
+            val email = emailView.text.toString()
+            val password = passwordView.text.toString()
 
-            if (!email.isEmpty() && !password.isEmpty()) {
+            if (email.isNotEmpty() && password.isNotEmpty()) {
                 login(email, password)
             }
         }

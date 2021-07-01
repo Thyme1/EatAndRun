@@ -23,16 +23,12 @@ class SearchFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate<FragmentSearchBinding>(inflater, R.layout.fragment_search, container, false)
 
-        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
-        // Giving the binding access to the viewModel
         binding.viewModel = viewModel
 
-        // Set the adapter with clickHandler lambad that tells the viewModel when a item is clicked
         val adapter = SearchItemAdapter(SearchItemAdapter.OnClickListener {
             viewModel.displayAddFood(it)
         })
@@ -44,12 +40,10 @@ class SearchFragment : Fragment() {
             }
         })
 
-        // Observe navigateToSelectedFood data and navigate if it isn't null
-        // After navigate, set the selectedFood to null so that ViewModel is rdy for another navigation
+
         viewModel.navigateToSelectedFood.observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 this.findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToAddFoodFragment(it))
-                // tell the viewModel we've mafe the navigate call
                 viewModel.displayAddFoodIsComplete()
             }
         })

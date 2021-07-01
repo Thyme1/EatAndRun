@@ -47,7 +47,7 @@ class RegisterFragment : Fragment() {
 
             if (!password.equals(passwordConfirm)) {
                 Toast.makeText(activity, "Passwords doesn't match", Toast.LENGTH_LONG).show()
-            } else if (!email.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty()) {
+            } else if (email.isNotEmpty() && password.isNotEmpty() && passwordConfirm.isNotEmpty()) {
                 register(email, password)
             }
         }
@@ -59,7 +59,7 @@ class RegisterFragment : Fragment() {
         mAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    // Register: succes
+                    // Register: success
                     intentToMainActivity()
                 } else {
                     // Register: fail

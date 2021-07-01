@@ -34,8 +34,6 @@ class AddFoodFragment : Fragment() {
         viewModel.navigateToOverview.observe(viewLifecycleOwner, Observer {
             if (it) {
                 this.findNavController().navigate(AddFoodFragmentDirections.actionAddFoodFragmentToOverviewFragment())
-//                Navigation.createNavigateOnClickListener(R.id.action_addFoodFragment_to_overviewFragment)
-//                viewModel.onNavigateToOverviewCompleted()
             }
         })
 

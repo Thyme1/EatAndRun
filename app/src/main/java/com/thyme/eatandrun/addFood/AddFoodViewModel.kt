@@ -15,14 +15,13 @@ import kotlinx.coroutines.*
 class AddFoodViewModel(
     food: Food,
     val database: FoodDatabaseDao,
-    app: Application) : AndroidViewModel(app) {
+    app: Application
+) : AndroidViewModel(app) {
 
-    /** COROUTINES */
     private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
 
-    /** BINDABLES */
     private val _selectedFood = MutableLiveData<Food>()
 
     val selectedFood: LiveData<Food>
@@ -40,8 +39,6 @@ class AddFoodViewModel(
         currentGramsString.value = "100"
     }
 
-    /** UI's LiveData */
-
     val displayKcalPer100G = Transformations.map(selectedFood) { food ->
         app.applicationContext.getString(R.string.display_kcal_per_100g, food.nutrients.kcal)
     }
@@ -53,7 +50,10 @@ class AddFoodViewModel(
         if (gramsString.isEmpty()) {
             app.applicationContext.getString(R.string.format_grams, "0".toDouble())
         } else {
-            app.applicationContext.getString(R.string.format_grams, gramsString.toDouble().times(carbsPerOneGram))
+            app.applicationContext.getString(
+                R.string.format_grams,
+                gramsString.toDouble().times(carbsPerOneGram)
+            )
         }
     }
 
@@ -63,7 +63,10 @@ class AddFoodViewModel(
         if (gramsString.isEmpty()) {
             app.applicationContext.getString(R.string.format_grams, "0".toDouble())
         } else {
-            app.applicationContext.getString(R.string.format_grams, gramsString.toDouble().times(proteinsPerOneGram))
+            app.applicationContext.getString(
+                R.string.format_grams,
+                gramsString.toDouble().times(proteinsPerOneGram)
+            )
         }
     }
 
@@ -73,7 +76,10 @@ class AddFoodViewModel(
         if (gramsString.isEmpty()) {
             app.applicationContext.getString(R.string.format_grams, "0".toDouble())
         } else {
-            app.applicationContext.getString(R.string.format_grams, gramsString.toDouble().times(fatsPerOneGram))
+            app.applicationContext.getString(
+                R.string.format_grams,
+                gramsString.toDouble().times(fatsPerOneGram)
+            )
         }
     }
 
@@ -83,7 +89,10 @@ class AddFoodViewModel(
         if (gramsString.isEmpty()) {
             app.applicationContext.getString(R.string.format_total_kcal, "0".toDouble())
         } else {
-            app.applicationContext.getString(R.string.format_total_kcal, gramsString.toDouble().times(kcalPerOneGram))
+            app.applicationContext.getString(
+                R.string.format_total_kcal,
+                gramsString.toDouble().times(kcalPerOneGram)
+            )
         }
     }
 
@@ -98,8 +107,6 @@ class AddFoodViewModel(
     val displayFatsPercent = Transformations.map(selectedFood) { food ->
         app.applicationContext.getString(R.string.format_percent, food.nutrients.fatPercent)
     }
-
-    /** Database */
 
     private suspend fun insert(foodModel: FoodModel) {
         withContext(Dispatchers.IO) {
@@ -134,11 +141,9 @@ class AddFoodViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        // cancel all coroutines
         viewModelJob.cancel()
     }
 
-    /** Navigations*/
     fun onNavigateToOverviewStart() {
         navigateToOverview.value = true
     }

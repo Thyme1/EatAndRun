@@ -11,10 +11,8 @@ import kotlinx.coroutines.launch
 
 class SearchViewModel : ViewModel() {
 
-    // Word filter for API search
     val word = MutableLiveData<String>()
 
-    // The internal MutableLiveData String that stores the most recent response
     private val _response = MutableLiveData<String>()
 
     private val _searchListFood = MutableLiveData<List<Food>>()
@@ -22,7 +20,6 @@ class SearchViewModel : ViewModel() {
     val searchListFood: LiveData<List<Food>>
         get() = _searchListFood
 
-    // Internally, we use a MutableLiveData to handle navigation to the selected food
     private val _navigateToSelectedFood = MutableLiveData<Food>()
 
     val navigateToSelectedFood: LiveData<Food>
